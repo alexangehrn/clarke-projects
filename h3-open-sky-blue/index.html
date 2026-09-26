@@ -238,24 +238,37 @@ textarea{min-height:110px;resize:vertical}
 
 .about .text p:first-of-type{margin-top:0}
 
-/* ---------- H1: the Siskind hung on a lit wall, with a wall label ---------- */
-.home.wall{background:radial-gradient(ellipse 46% 66% at 70% 34%,#EEF3F6 0%,rgba(238,243,246,0) 72%),var(--paper)}
-.home.wall .words{grid-column:1 / span 5}
-.hang{grid-column:7 / span 6;margin:0;display:flex;align-items:flex-end;gap:28px;transform:translateY(-7vh)}
-.hangframe{flex:0 0 auto;width:min(430px,calc(100vh - var(--hh) - 300px));min-width:300px;background:#1B1E21;padding:9px;
-  box-shadow:0 40px 46px -30px rgba(21,26,30,.55),0 4px 10px rgba(21,26,30,.18)}
-.hangframe .mount{background:#FAFAF8;padding:clamp(16px,1.7vw,26px)}
-.hang .label{flex:0 1 230px;background:#FBFBFA;padding:14px 16px 15px;font-size:13px;line-height:1.5;margin-bottom:calc(9px + clamp(16px,1.7vw,26px));
-  box-shadow:0 1px 2px rgba(21,26,30,.12),0 8px 18px -10px rgba(21,26,30,.25)}
-.hang .label span{display:block}
-.hang .label .artist{font-weight:500}
-.hang .label .title{font-style:italic;font-weight:300;color:var(--graphite)}
-@media (max-width:900px){
-  .home.wall .words{grid-column:1 / -1}
-  .hang{grid-column:1 / -1;flex-direction:column;align-items:flex-start;gap:22px;transform:none}
-  .hangframe{width:100%;max-width:520px;min-width:0}
-  .hang .label{flex:none;margin:0}
+/* ---------- H3: the page becomes the photograph's sky ---------- */
+:root{--sky:var(--paper)}
+.home.sky{background:var(--sky);overflow:hidden;justify-content:space-between;padding-block:40px 52px}
+body:has(.home.sky) .site-header.hide-logo{background:rgba(217,229,236,.94);border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.home.sky > .wrap{position:relative;z-index:2}
+.home.sky .diver{position:absolute;inset:0;margin:0;display:grid;place-items:center;z-index:1}
+.home.sky .diver .pic{width:min(calc((100vh - var(--hh)) * 1.02),62vw)}
+.home.sky .diver img{aspect-ratio:auto;
+  -webkit-mask-image:radial-gradient(closest-side,#000 84%,transparent 100%);mask-image:radial-gradient(closest-side,#000 84%,transparent 100%)}
+.home.sky .bottom{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:40px;align-items:end}
+.home.sky .city{margin:0 0 14px}
+.home.sky .h1{margin:0;font-size:clamp(30px,3vw,48px);font-weight:200;letter-spacing:-.01em;text-transform:none;line-height:1.08;max-width:11em}
+.home.sky .aside .intro{margin:0;max-width:none;font-size:clamp(16px,1.15vw,17.5px);border-top-color:rgba(21,26,30,.3)}
+.home.sky .cap{position:absolute;z-index:2;right:var(--m);top:50%;margin:0;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
+  font:300 13px/1 var(--sans);letter-spacing:.06em;color:var(--graphite)}
+@media (prefers-reduced-motion:no-preference){
+  .home.sky .diver .pic{animation:drift 14s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translate3d(0,-1.2%,0) rotate(-.6deg)}to{transform:translate3d(0,1.2%,0) rotate(.6deg)}}
 }
+@media (max-width:900px){
+  .home.sky{display:flex;flex-direction:column;padding-block:28px 48px}
+  .home.sky .diver{position:relative;inset:auto;margin:4px 0 -6vw}
+  .home.sky .diver .pic{width:100%}
+  .home.sky .bottom{grid-template-columns:1fr;gap:24px}
+  .home.sky .cap{position:static;transform:none;writing-mode:horizontal-tb;padding:0 var(--m);order:3;margin-top:-4px}
+  .home.sky .bottom{order:4;margin-top:28px}
+}
+
+/* ---------- H3 variant: lift the photo's grey sky to white and blend it into the page colour ---------- */
+.home.sky .diver{mix-blend-mode:multiply}
+.home.sky .diver img{filter:contrast(1.08) brightness(1.14)}
 </style>
 </head>
 <body>
@@ -275,15 +288,12 @@ textarea{min-height:110px;resize:vertical}
 </header>
 <nav aria-label="Pages"><ol class="dots" id="dots"></ol></nav>
 <main id="main">
-<section class="page home leftlogo lintro wall" id="home" aria-labelledby="h1"><div class="wrap grid">
-  <div class="words"><p class="logo bigmark" id="bigmark" aria-hidden="true"><span>Clarke</span><span>Projects</span></p>
-  <h1 class="h1" id="h1">Art Advisory &amp; Collection Management</h1><p class="kicker city">New York</p>
-  <p class="intro">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p></div>
-  <figure class="hang" aria-labelledby="cap cap2">
-    <div class="hangframe"><div class="mount" data-loupe><img src="../assets/siskind.jpg" width="937" height="937" alt="Black-and-white photograph by Aaron Siskind: a diver seen from below, suspended against a white sky, arms and legs thrown outward."></div></div>
-    <figcaption class="label"><span class="artist" id="cap">Aaron Siskind</span><span class="title" id="cap2">Pleasures and Terrors of Levitation</span></figcaption>
-  </figure>
-</div></section><section class="page about" id="about" aria-labelledby="about-h">
+<section class="page home leftlogo lintro sky" id="home" aria-labelledby="h1">
+  <div class="wrap top"><p class="logo bigmark" id="bigmark" aria-hidden="true"><span>Clarke</span><span>Projects</span></p></div>
+  <figure class="diver" aria-labelledby="cap"><div class="pic" data-loupe><img src="../assets/siskind.jpg" width="937" height="937" alt="Black-and-white photograph by Aaron Siskind: a diver seen from below, suspended against a white sky, arms and legs thrown outward."></div></figure>
+  <div class="wrap bottom"><div><p class="kicker city">New York</p><h1 class="h1" id="h1">Art Advisory &amp; Collection Management</h1></div><div class="aside"><p class="intro">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p></div></div>
+  <p class="cap" id="cap">Aaron Siskind, <em>Pleasures and Terrors of Levitation</em></p>
+</section><section class="page about" id="about" aria-labelledby="about-h">
   <figure class="half"><img src="../assets/portrait-head.jpg" width="3790" height="3618" loading="lazy" alt="Benjamin Clarke in a green linen jacket and open white shirt against a pale blue wall."><figcaption>Benjamin Clarke. Photograph: [credit]</figcaption></figure>
   <div class="text">
     <h2 class="kicker" id="about-h">About</h2>
