@@ -1,16 +1,17 @@
-# Clarke Projects — homepage options
+# Clarke Projects — design options
 
-Static site, no build step. Each option lives at its own path:
+Static site, no build step. `/` lists all options; each one lives at its own path.
 
-| Option | Path |
-|---|---|
-| J9 · One-page intro | `/j9-one-page-intro/` |
-| J11 · Triptych | `/j11-triptych/` |
-| J13 · Wall band | `/j13-wall-band/` |
+| Option | Name | Path |
+|---|---|---|
+| 1 | Wall label | `/option-1/` |
+| 2 | One-page intro | `/option-2/` |
+| 3a | Triptych | `/option-3a/` |
+| 3b | Wall band | `/option-3b/` |
+| 4a | Open sky, blue | `/option-4a/` |
+| 4b | Open sky, grey | `/option-4b/` |
 
-Home-section explorations: `/h1-wall-label/`, `/h3-open-sky/`, `/h3-open-sky-blue/` (full pages, J9 below the home).
-
-`/` is an index linking to all three. Images are shared from `/assets/`.
+Images and fonts are shared from `/assets/`.
 
 ## Preview locally
 
@@ -18,9 +19,6 @@ Home-section explorations: `/h1-wall-label/`, `/h3-open-sky/`, `/h3-open-sky-blu
 npx serve .
 ```
 
-## Deploy
+## Add an option
 
-1. Push this folder to a GitHub repo.
-2. In Vercel: **Add New → Project**, import the repo, Framework Preset **Other**, leave build and output settings empty, **Deploy**.
-
-To add another option, create `new-name/index.html` (images as `../assets/…`) and add a line to `index.html`.
+Create `option-x/index.html` (images as `../assets/…`) and add a line to `index.html`.
