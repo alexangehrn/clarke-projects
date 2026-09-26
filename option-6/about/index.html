@@ -307,10 +307,10 @@ body:has(.home.sky) .site-header.hide-logo{background:rgba(217,229,236,.94);bord
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header" id="site-header">
   <div class="wrap">
-    <a class="logo" id="brand" href="/option-d/">Clarke Projects</a>
+    <a class="logo" id="brand" href="/option-6/">Clarke Projects</a>
     <nav class="menu" id="menu" aria-label="Main">
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-list">Menu</button>
-      <ul id="menu-list"><li><a href="/option-d/">Home</a></li><li><a href="/option-d/about/" aria-current="page">About</a></li><li><a href="/option-d/services/">Services</a></li><li><a href="/option-d/contact/">Contact</a></li></ul>
+      <ul id="menu-list"><li><a href="/option-6/">Home</a></li><li><a href="/option-6/about/" aria-current="page">About</a></li><li><a href="/option-6/services/">Services</a></li><li><a href="/option-6/contact/">Contact</a></li></ul>
     </nav>
   </div>
 </header>
@@ -332,7 +332,7 @@ body:has(.home.sky) .site-header.hide-logo{background:rgba(217,229,236,.94);bord
   var btn=document.getElementById('menu-btn'), menu=document.getElementById('menu');
   btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
   [].forEach.call(menu.querySelectorAll('ul a'),function(a){a.addEventListener('click',function(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
-  var secs=[], mlinks=[].slice.call(menu.querySelectorAll('ul a')), lastSec;
+  var secs=[], mlinks=[], lastSec;
   function spy(){var cur=null,line=window.innerHeight*0.4;secs.forEach(function(s){if(s.getBoundingClientRect().top<line)cur=s.id;});
     if(cur===lastSec)return;lastSec=cur;mlinks.forEach(function(a){if(a.getAttribute('href')==='#'+cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});}
   // China marker on the Siskind: draws itself once, from a visible 35%.

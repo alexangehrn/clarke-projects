@@ -4,17 +4,14 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 
 | Option | Name | Path |
 |---|---|---|
-| 1 | Wall label | `/option-1/` |
-| 2 | One-page intro | `/option-2/` |
-| 3a | Triptych | `/option-3a/` |
-| 3b | Wall band | `/option-3b/` |
-| 4a | Open sky, blue | `/option-4a/` |
-| 4b | Open sky, grey | `/option-4b/` |
-| 5 | Exhibition space: Siskind hung in a lit room; rest of the page as Option 4a | `/option-5/` |
-| A | Refined minimal (from the grey direction) | `/option-a/` |
-| B | Editorial art world | `/option-b/` |
-| C | Services-led | `/option-c/` |
-| D | Option 5 as separate pages: `/option-d/`, `/option-d/about/`, `/option-d/services/`, `/option-d/contact/` | `/option-d/` |
+| 1 | Gallery style | `/option-1/` |
+| 2 | Art selection style, Left aligned | `/option-2/` |
+| 3A | Art selection style, Center aligned, Legend on sides | `/option-3a/` |
+| 3B | Art selection style, Center aligned, Legend on bottom banner | `/option-3b/` |
+| 4A | Art Background, Blue | `/option-4a/` |
+| 4B | Art Background, Grey | `/option-4b/` |
+| 5 | Gallery style, Blocks | `/option-5/` |
+| 6 | Different pages navigation: `/option-6/`, `/option-6/about/`, `/option-6/services/`, `/option-6/contact/` | `/option-6/` |
 
 Images and fonts are shared from `/assets/`.
 
