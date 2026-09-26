@@ -10,6 +10,7 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 | 3b | Wall band | `/option-3b/` |
 | 4a | Open sky, blue | `/option-4a/` |
 | 4b | Open sky, grey | `/option-4b/` |
+| 5 | Exhibition space: Siskind hung in a lit room; rest of the page as Option 4a | `/option-5/` |
 
 Images and fonts are shared from `/assets/`.
 
