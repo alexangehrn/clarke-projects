@@ -12,9 +12,10 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 | 4B | Art Background, Grey | `/option-4b/` |
 | 5 | Gallery style, Blocks | `/option-5/` |
 | 6 | Different pages navigation: `/option-6/`, `/option-6/about/`, `/option-6/services/`, `/option-6/contact/` | `/option-6/` |
-| 7 | Gallery style, Subtle motion (Option 5 with small animations) | `/option-7/` |
-| 8 | Art Background, Immersive levitation (Option 4A with an immersive home) | `/option-8/` |
-| 9 | 3D Gallery walk (scroll walks through a gallery corridor; flat page on phones and with reduced motion) | `/option-9/` |
+| 9A | 3D Gallery walk, Corridor (scroll walks through a gallery corridor; flat page on phones and with reduced motion) | `/option-9/` |
+| 9B | 3D Gallery walk, Enfilade: forward only, room to room through doorways with signs | `/option-9b/` |
+| 9C | 3D Gallery walk, Promenade: along one long wall, with a plan strip | `/option-9c/` |
+| 9D | 3D Gallery walk, Guided: angled walls, map, settles at each stop | `/option-9d/` |
 
 Images and fonts are shared from `/assets/`.
 
