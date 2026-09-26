@@ -251,7 +251,7 @@ body:has(.home.sky) .site-header.hide-logo{background:rgba(217,229,236,.94);bord
 .home.sky .city{margin:0 0 14px}
 .home.sky .h1{margin:0;font-size:clamp(30px,3vw,48px);font-weight:200;letter-spacing:-.01em;text-transform:none;line-height:1.08;max-width:11em}
 .home.sky .aside .intro{margin:0;max-width:none;font-size:clamp(16px,1.15vw,17.5px);border-top-color:rgba(21,26,30,.3)}
-.home.sky .cap{position:absolute;z-index:2;right:var(--m);top:50%;margin:0;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
+.home.sky .cap{position:absolute;z-index:2;right:max(58px,var(--m),calc((100% - 1312px) / 2));top:50%;margin:0;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
   font:300 13px/1 var(--sans);letter-spacing:.06em;color:var(--graphite)}
 @media (prefers-reduced-motion:no-preference){
   .home.sky .diver .pic{animation:drift 14s ease-in-out infinite alternate}
@@ -269,6 +269,16 @@ body:has(.home.sky) .site-header.hide-logo{background:rgba(217,229,236,.94);bord
 /* ---------- H3 variant: lift the photo's grey sky to white and blend it into the page colour ---------- */
 .home.sky .diver{mix-blend-mode:multiply}
 .home.sky .diver img{filter:contrast(1.08) brightness(1.14)}
+
+/* tablet: keep the three special-project photos in one row, keep the Siskind at a display size */
+@media (min-width:601px) and (max-width:900px){
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr));padding:30px 24px 34px;gap:14px}
+  .strip .edge.t{display:flex}
+  .strip .edge.b{writing-mode:horizontal-tb;left:24px;right:24px;top:auto;bottom:12px}
+  .strip .frame figcaption{font-size:12px}
+  .home .print{max-width:520px}
+  .home.center .print,.home.center .trip .print{margin-inline:auto}
+}
 </style>
 </head>
 <body>

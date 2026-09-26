@@ -242,7 +242,7 @@ textarea{min-height:110px;resize:vertical}
 .home.wall{background:radial-gradient(ellipse 46% 66% at 70% 34%,#EEF3F6 0%,rgba(238,243,246,0) 72%),var(--paper)}
 .home.wall .words{grid-column:1 / span 5}
 .hang{grid-column:7 / span 6;margin:0;display:flex;align-items:flex-end;gap:28px;transform:translateY(-7vh)}
-.hangframe{flex:0 0 auto;width:min(430px,calc(100vh - var(--hh) - 300px));min-width:300px;background:#1B1E21;padding:9px;
+.hangframe{flex:0 0 auto;width:min(clamp(430px,28vw,560px),calc(100vh - var(--hh) - 300px));min-width:300px;background:#1B1E21;padding:9px;
   box-shadow:0 40px 46px -30px rgba(21,26,30,.55),0 4px 10px rgba(21,26,30,.18)}
 .hangframe .mount{background:#FAFAF8;padding:clamp(16px,1.7vw,26px)}
 .hang .label{flex:0 1 230px;background:#FBFBFA;padding:14px 16px 15px;font-size:13px;line-height:1.5;margin-bottom:calc(9px + clamp(16px,1.7vw,26px));
@@ -255,6 +255,22 @@ textarea{min-height:110px;resize:vertical}
   .hang{grid-column:1 / -1;flex-direction:column;align-items:flex-start;gap:22px;transform:none}
   .hangframe{width:100%;max-width:520px;min-width:0}
   .hang .label{flex:none;margin:0}
+}
+
+/* label passes below the photo unless there is generous room beside it */
+@media (min-width:901px) and (max-width:1599px){
+  .hang{flex-direction:column;align-items:flex-start;gap:16px;transform:translateY(-3vh)}
+  .hang .label{flex:none;margin-bottom:0}
+}
+
+/* tablet: keep the three special-project photos in one row, keep the Siskind at a display size */
+@media (min-width:601px) and (max-width:900px){
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr));padding:30px 24px 34px;gap:14px}
+  .strip .edge.t{display:flex}
+  .strip .edge.b{writing-mode:horizontal-tb;left:24px;right:24px;top:auto;bottom:12px}
+  .strip .frame figcaption{font-size:12px}
+  .home .print{max-width:520px}
+  .home.center .print,.home.center .trip .print{margin-inline:auto}
 }
 </style>
 </head>
