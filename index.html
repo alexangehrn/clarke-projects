@@ -23,6 +23,8 @@
   a:hover .name, a:focus-visible .name { text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px; }
   a:hover .arrow { transform:translateX(4px); }
   a:focus-visible { outline:2px solid var(--ink); outline-offset:4px; }
+  h2.sec { margin:0 0 14px; font:500 12px/1.4 'Jost',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--graphite); }
+  ol.current { margin-bottom:56px; }
   @media (max-width:480px){ a { grid-template-columns:6.4em 1fr auto; gap:8px; } }
   @media (prefers-reduced-motion:reduce){ .arrow { transition:none; } }
 </style>
@@ -31,14 +33,23 @@
 <main>
   <p class="logo">Clarke Projects</p>
   <h1>Design Options</h1>
+  <h2 class="sec">Current website</h2>
+  <ol class="current">
+    <li><a target="_blank" rel="noopener" href="https://www.clarkeprojects.com"><span class="num">Live</span><span class="name">clarkeprojects.com</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+  </ol>
+  <h2 class="sec">Options</h2>
   <ol>
-    <li><a href="option-1/"><span class="num">Option 1</span><span class="name">Wall label</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a href="option-2/"><span class="num">Option 2</span><span class="name">One-page intro</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a href="option-3a/"><span class="num">Option 3a</span><span class="name">Triptych</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a href="option-3b/"><span class="num">Option 3b</span><span class="name">Wall band</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a href="option-4a/"><span class="num">Option 4a</span><span class="name">Open sky, blue</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a href="option-4b/"><span class="num">Option 4b</span><span class="name">Open sky, grey</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a href="option-5/"><span class="num">Option 5</span><span class="name">Exhibition space</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-1/"><span class="num">Option 1</span><span class="name">Wall label</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-2/"><span class="num">Option 2</span><span class="name">One-page intro</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-3a/"><span class="num">Option 3a</span><span class="name">Triptych</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-3b/"><span class="num">Option 3b</span><span class="name">Wall band</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-4a/"><span class="num">Option 4a</span><span class="name">Open sky, blue</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-4b/"><span class="num">Option 4b</span><span class="name">Open sky, grey</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-5/"><span class="num">Option 5</span><span class="name">Exhibition space</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-a/"><span class="num">Option A</span><span class="name">Refined minimal</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-b/"><span class="num">Option B</span><span class="name">Editorial art world</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-c/"><span class="num">Option C</span><span class="name">Services-led</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-d/"><span class="num">Option D</span><span class="name">Exhibition space, separate pages</span><span class="arrow" aria-hidden="true">→</span></a></li>
   </ol>
 </main>
 </body>

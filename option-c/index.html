@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clarke Projects | Art Advisory &amp; Collection Management NYC</title>
+<meta name="description" content="New York art advisory and collection management for private and corporate collectors of modern, contemporary and emerging art. Led by Benjamin Clarke.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{--paper:#D9E5EC;--paper-2:#E7EEF2;--wall:#EEF3F6;--ink:#151A1E;--graphite:#3F4B54;--film:#121416;--edge:#C3CDD3;
+  --line:rgba(21,26,30,.18);--sans:'Jost','Futura','Helvetica Neue',Arial,sans-serif;--serif:'Cormorant Garamond',Georgia,serif;
+  --m:64px;--g:24px;--hh:68px;--ease:cubic-bezier(.2,.7,.2,1)}
+@media (max-width:1100px){:root{--m:40px}}
+@media (max-width:900px){:root{--m:20px;--g:16px;--hh:60px}}
+*{box-sizing:border-box}
+html{scroll-padding-top:var(--hh)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.62 var(--sans);-webkit-font-smoothing:antialiased}
+@media (max-width:900px){body{font-size:16.5px}}
+h1,h2,h3,p,figure,blockquote,ol,ul,dl,dd{margin:0}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:var(--paper);padding:10px 14px;z-index:60;text-decoration:none}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:calc(1312px + 2*var(--m));margin:0 auto;padding-inline:var(--m)}
+.kicker{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--graphite)}
+.logo{font-family:var(--serif);font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap;line-height:1}
+
+/* header */
+.site-header{position:fixed;left:0;right:0;top:0;height:var(--hh);z-index:40;background:var(--hdr,rgba(217,229,236,.94));-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--hdr-line,rgba(21,26,30,.14))}
+.site-header .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.site-header .logo{font-size:19px;padding-block:10px;transition:opacity .35s}
+.site-header.hide-logo .logo{opacity:0;pointer-events:none}
+.menu{margin-left:auto}
+.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:30px}
+.menu a{display:inline-block;padding-block:10px;text-decoration:none;font-size:15px;letter-spacing:.02em;
+  background:linear-gradient(currentColor,currentColor) 0 calc(100% - 6px)/0 1px no-repeat;transition:background-size .3s ease}
+.menu a:hover,.menu a:focus-visible,.menu a[aria-current]{background-size:100% 1px}
+.menu-btn{display:none}
+@media (max-width:900px){
+  .site-header .logo{font-size:15px}
+  .menu-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;background:none;border:0;font:500 14px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .menu ul{display:none;position:absolute;left:0;right:0;top:var(--hh);flex-direction:column;gap:0;background:var(--menu-bg,var(--paper));border-bottom:1px solid var(--line);padding:8px var(--m) 16px}
+  .menu.open ul{display:flex}
+  .menu ul a{padding-block:12px;font-size:18px}
+}
+main{padding-top:var(--hh)}
+
+/* home typography (as J9) */
+.bigmark{display:block;font-size:clamp(38px,4.3vw,66px);line-height:1.08}
+.bigmark span{display:block}
+.tagline{margin-top:28px;font:400 clamp(14px,1.15vw,17px)/1.6 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.city{margin-top:8px}
+.intro{margin-top:34px;padding-top:26px;border-top:1px solid rgba(21,26,30,.25);max-width:27em;font-weight:300;font-size:clamp(17px,1.3vw,19.5px);line-height:1.6;color:var(--graphite)}
+@media (max-width:900px){.bigmark{font-size:clamp(34px,11vw,52px)}.intro{font-size:17px;margin-top:26px;padding-top:20px}}
+
+/* shared section pieces */
+.sec{padding-block:clamp(72px,11vh,128px)}
+.display{font-weight:200;font-size:clamp(34px,3.6vw,56px);line-height:1.05;letter-spacing:-.015em}
+
+/* about (as J9) */
+.about{display:grid;grid-template-columns:1fr 1fr;background:var(--paper-2)}
+.about .half{position:relative;min-height:600px;background:#B4CFDC}
+.about .half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.about .half figcaption{position:absolute;left:var(--m);bottom:18px;font-size:12.5px;background:rgba(231,238,242,.9);padding:3px 9px}
+.about .text{align-self:center;padding:64px var(--m) 64px 64px;max-width:780px}
+.about .text h2{margin-bottom:22px}
+.about .text p{margin:0 0 .9em;font-size:15.5px;line-height:1.6;max-width:38em}
+.about .text .lead{font-weight:300;font-size:clamp(21px,1.75vw,26px);line-height:1.32;letter-spacing:-.01em;margin-bottom:1.1em;max-width:none}
+@media (max-width:900px){.about{grid-template-columns:1fr}.about .half{min-height:0;aspect-ratio:4/5}.about .text{padding:48px var(--m) 56px}}
+
+/* contact (as J9) */
+.contact{background:var(--paper-2)}
+.contact .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-block:clamp(72px,11vh,120px) 64px}
+.contact h2{grid-column:1 / -1;margin-bottom:40px;font-weight:200;font-size:clamp(28px,2.6vw,40px);letter-spacing:-.005em}
+.details{grid-column:1 / span 4;display:grid;gap:18px;align-content:start}
+.details dt{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--graphite)}
+.details dd{margin-top:4px;font-size:17px;font-weight:300;overflow-wrap:anywhere}
+form{grid-column:6 / span 5;max-width:520px;display:grid;gap:18px}
+.field{display:grid;gap:6px}
+label{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--graphite)}
+input,textarea{font:300 17px/1.5 var(--sans);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--graphite);border-radius:0;padding:10px 0;width:100%}
+input:focus-visible,textarea:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+textarea{min-height:88px;resize:vertical}
+.hint{font-size:14px;color:var(--graphite)}
+.send{justify-self:start;font:500 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--paper-2);background:var(--ink);border:0;padding:14px 22px;min-height:44px;cursor:pointer}
+.status{min-height:1.5em;font-size:14px}
+.foot{border-top:1px solid rgba(21,26,30,.2)}
+.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px 22px;font-size:13px;color:var(--graphite)}
+.foot .logo{font-size:14px}
+@media (max-width:900px){.contact .grid{grid-template-columns:1fr}.details,form{grid-column:1 / -1}.details{margin-bottom:36px}}
+
+/* gentle reveal on scroll (only with JS, only without reduced motion) */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  html.js .rv{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  html.js .rv.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.ladder{position:relative;overflow:hidden;background:#CFCFD1}
+.ladder img{position:absolute;max-width:none;width:400%;height:auto;left:-116%}
+.ph{overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.bw img{filter:grayscale(1) contrast(1.03)}
+.cap{margin-top:12px;font-size:13.5px;line-height:1.45;color:var(--graphite)}
+.cap em{font-weight:300}
+
+/* hero: name, discipline, city, read at once */
+.hero{min-height:calc(100svh - var(--hh));display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:center;
+  padding:clamp(48px,9vh,112px) max(var(--m),calc((100vw - 1312px) / 2))}
+.hero .words{grid-column:1 / span 6}
+.hero .bigmark{font-size:clamp(50px,6.2vw,108px);line-height:1.04}
+.hero .tagline{margin-top:clamp(28px,3.4vh,40px);font-size:clamp(14px,1.2vw,18px);letter-spacing:.24em}
+.hero .city{margin-top:10px;font-size:13px}
+.hero .intro{margin-top:clamp(40px,6vh,64px);max-width:26em}
+.hero .work{grid-column:8 / span 5;justify-self:end;margin:0;width:min(100%,calc(100svh - var(--hh) - 240px));min-width:280px}
+.hero .work img{width:100%}
+.hero .work figcaption{display:flex;justify-content:space-between;gap:16px}
+@media (prefers-reduced-motion:no-preference){
+  .hero .a1,.hero .a2,.hero .a3,.hero .a4{animation:rise 1.4s var(--ease) both}
+  .hero .a2{animation-delay:.15s}.hero .a3{animation-delay:.3s}.hero .a4{animation-delay:.45s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+
+/* about: portrait and biography */
+.bio .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:start}
+.bio h2{margin-bottom:28px}
+.bio p{font-size:16.5px;line-height:1.78;margin-bottom:1em;max-width:34em;color:var(--body,#262B30)}
+.bio p.lead{font-weight:300;font-size:clamp(21px,1.8vw,27px);line-height:1.45;letter-spacing:-.01em;color:var(--ink)}
+
+.svc-sec .kicker{margin-bottom:clamp(32px,4vw,56px)}
+.sp-sec > .wrap > .kicker{margin-bottom:clamp(28px,3vw,44px)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0;row-gap:48px;padding-top:44px}
+  .hero .words,.hero .work{grid-column:1 / -1}
+  .hero .work{justify-self:start;width:100%;max-width:440px;min-width:0}
+  .hero .bigmark{font-size:clamp(40px,12vw,60px)}
+  .bio .wrap{grid-template-columns:1fr;row-gap:40px}
+  .bio .wrap > *{grid-column:1 / -1 !important}
+}
+
+:root{--body:#242B31}
+.bio{background:var(--paper-2);padding-block:clamp(120px,18vh,200px)}
+.bio figure{grid-column:1 / span 5;margin:0}
+.bio figure .ph{aspect-ratio:4/5;background:#B4CFDC}
+.bio .text{grid-column:7 / span 5;padding-top:clamp(0px,4vw,64px)}
+
+/* the three services as chapters */
+.svc-intro{padding-top:clamp(120px,18vh,200px)}
+.chapter{padding-block:clamp(72px,10vh,120px) clamp(120px,18vh,200px)}
+.chapter + .chapter{border-top:1px solid var(--line)}
+.chapter .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);row-gap:clamp(48px,6vw,88px);align-items:start}
+.chapter h3{grid-column:1 / -1;font-weight:200;font-size:clamp(60px,10.4vw,184px);line-height:.9;letter-spacing:-.035em}
+.chapter p{font-size:clamp(17px,1.3vw,19px);line-height:1.75;color:var(--body);max-width:30em}
+.chapter figure{margin:0}
+.c1 figure{grid-column:1 / span 4}.c1 figure .ph{aspect-ratio:3/4;background:#DDDDE0}
+.c1 figure img{object-position:74% 30%;transform:scale(1.9);transform-origin:74% 30%}
+.c1 p{grid-column:7 / span 5;align-self:end}
+.c2{background:var(--paper-2)}
+.c2 h3{text-align:right}
+.c2 p{grid-column:2 / span 5;align-self:center}
+.c2 figure{grid-column:8 / span 4}
+.c3 p{grid-column:1 / span 5}
+.c3 .f1{grid-column:1 / span 8;grid-row:3}.c3 .f1 .ph{aspect-ratio:3/2}.c3 .f1 img{object-position:50% 58%}
+.c3 .f2{grid-column:9 / span 4;grid-row:3;align-self:end}.c3 .f2 .ph{aspect-ratio:4/5}
+@media (prefers-reduced-motion:no-preference){
+  html.js .chapter h3.rv{transform:translateY(28px)}
+}
+
+@media (max-width:900px){
+  .chapter .wrap{grid-template-columns:1fr;row-gap:36px}
+  .chapter .wrap > *{grid-column:1 / -1 !important;grid-row:auto !important}
+  .c2 h3{text-align:left}
+  .c1 figure{width:70%}
+  .c2 figure{width:80%;justify-self:end}
+  .c3 .f2{width:66%;justify-self:end}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#h1">Skip to content</a>
+<header class="site-header" id="site-header">
+  <div class="wrap">
+    <a class="logo" href="#home">Clarke Projects</a>
+    <nav class="menu" id="menu" aria-label="Main">
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-list">Menu</button>
+      <ul id="menu-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero" id="home" aria-labelledby="h1">
+  <div class="words"><div class="a1"><p class="logo bigmark" id="bigmark" aria-hidden="true"><span>Clarke</span><span>Projects</span></p></div><div class="a2"><h1 class="tagline" id="h1">Art Advisory &amp; Collection Management</h1><p class="kicker city">New York</p></div><p class="intro a3">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p></div>
+  <figure class="work a4" aria-labelledby="hw-a hw-t"><img src="../assets/siskind.jpg" width="937" height="937" alt="Black-and-white photograph by Aaron Siskind: a diver seen from below, suspended against a white sky, arms and legs thrown outward."><figcaption class="cap"><span id="hw-a">Aaron Siskind</span><em id="hw-t">Pleasures and Terrors of Levitation</em></figcaption></figure>
+</section>
+
+<section class="bio" id="about" aria-labelledby="about-h"><div class="wrap">
+  <figure class="rv"><div class="ph"><img src="../assets/portrait-head.jpg" width="3790" height="3618" loading="lazy" style="object-position:50% 22%" alt="Benjamin Clarke in a green linen jacket and open white shirt against a pale blue wall."></div><figcaption class="cap">Benjamin Clarke. Photograph: [credit]</figcaption></figure>
+  <div class="text"><h2 class="kicker" id="about-h">About</h2><p class="lead rv">Benjamin Clarke has spent more than fourteen years working at the centre of the contemporary art world, with experience across galleries in Los Angeles, London and New York. A graduate of the University of Auckland, where he earned a Bachelor of Arts in Art History, he has worked directly with private collectors at the highest level, managing collections across multiple residences and developing a rigorous understanding of how significant collections are built, focused and grown over time.</p><p class="rv">Clarke Projects was founded on the belief that the best collections are built slowly and with conviction, guided by genuine passion rather than market pressure. Benjamin brings a comprehensive understanding of the primary and secondary markets, the gallery and auction systems that establish and sustain artistic value, and the long-term thinking required to build a collection of lasting significance. He has a particular sensitivity to photography and artists who work at the intersection of the photographic and the contemporary, and an instinct for works that feel both intellectually alive and genuinely at home in the spaces they occupy.</p><p class="rv">He works closely with each client to understand their tastes, their spaces and their aspirations, finding the territory where a collector’s vision and his own eye for quality meet. His approach is rooted in trust, discretion and a long-term commitment to building collections that endure.</p></div>
+</div></section>
+
+<div id="services" role="region" aria-labelledby="services-h">
+<div class="wrap svc-intro"><h2 class="kicker" id="services-h">Services</h2></div>
+<section class="chapter c1" aria-labelledby="c1-h"><div class="wrap">
+  <h3 class="rv" id="c1-h">Art<br>Advisory</h3>
+  <figure class="rv"><div class="ph"><img src="../assets/siskind.jpg" width="937" height="937" alt="Detail of the Aaron Siskind photograph: the diver’s raised feet."></div><figcaption class="cap">Aaron Siskind, <em>Pleasures and Terrors of Levitation</em> (detail)</figcaption></figure>
+  <p class="rv">Benjamin Clarke works with collectors at every stage, from those making their first serious acquisitions to established collections seeking greater focus and depth. We source works across the primary and secondary markets, with access to gallery relationships, auction previews and private sales that are often unavailable to collectors working independently. Our approach is patient and considered, guided by a genuine understanding of each client’s tastes, spaces and long-term ambitions.</p>
+</div></section>
+<section class="chapter c2" aria-labelledby="c2-h"><div class="wrap">
+  <h3 class="rv" id="c2-h">Collection<br>Management</h3>
+  <p class="rv">Building a collection is only part of the work. Clarke Projects provides comprehensive management services to ensure collections are properly documented, cared for and positioned for the future. From installation and logistics to insurance appraisals, museum loans and estate planning, we handle the operational complexity of collection ownership so that clients can focus on the experience of living with great art.</p>
+  <figure class="rv"><div class="bw"><div class="ladder" style="aspect-ratio:1/1.25"><img src="../assets/install-latoya.webp" width="1000" height="1333" loading="lazy" alt="An aluminium stepladder beside a reception desk on a bare concrete floor during a hang." style="top:-265.6%"></div></div><figcaption class="cap">Hang in progress, [city, year]</figcaption></figure>
+</div></section>
+<section class="chapter c3" id="projects" aria-labelledby="c3-h"><div class="wrap">
+  <h3 class="rv" id="c3-h">Special<br>Projects</h3>
+  <p class="rv">Some of the most rewarding work falls outside the conventional boundaries of advisory. Clarke Projects has experience managing large-scale installations, coordinating outdoor sculpture relocations and restorations, and overseeing conservation projects. We work closely with architects, interior designers and landscape architects to place works thoughtfully across the full range of a client’s world — from corporate offices and urban residences to country homes, beach houses and the landscapes and gardens that surround them.</p>
+  <figure class="f1 rv"><div class="ph bw"><img src="../assets/IMG_4657.webp" width="1000" height="1316" loading="lazy" alt="A crew uses a vacuum lifter to move a large crated panel across a lawn, trees behind."></div><figcaption class="cap">Outdoor installation, [year]</figcaption></figure>
+  <figure class="f2 rv"><div class="ph bw"><img src="../assets/IMG_4656.webp" width="1000" height="1304" loading="lazy" alt="Three art handlers lift a large looped wire sculpture above a work table in an office with city views."></div><figcaption class="cap">Installation, [city, year]</figcaption></figure>
+</div></section>
+</div>
+<section class="contact" id="contact" aria-labelledby="contact-h"><div class="wrap grid"><h2 id="contact-h">Let’s Work Together</h2><dl class="details">
+  <div><dt>Email</dt><dd>[email]@clarkeprojects.com</dd></div>
+  <div><dt>Telephone</dt><dd>+1 [phone]</dd></div>
+  <div><dt>Location</dt><dd>New York</dd></div>
+</dl><form id="enquiry" novalidate aria-describedby="form-hint">
+  <p class="hint" id="form-hint">All fields are required.</p>
+  <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+  <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+  <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+  <button class="send" type="submit">Send enquiry</button>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+</form></div><div class="foot"><div class="wrap"><span class="logo">Clarke Projects</span><span>New York</span><span>© 2026</span></div></div></section>
+</main>
+<script>
+(function(){
+  var btn=document.getElementById('menu-btn'), menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
+  [].forEach.call(menu.querySelectorAll('ul a'),function(a){a.addEventListener('click',function(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+
+  // header logo appears once the big logo has scrolled away
+  var hdr=document.getElementById('site-header'), bm=document.getElementById('bigmark');
+  if(bm && 'IntersectionObserver' in window){hdr.classList.add('hide-logo');
+    new IntersectionObserver(function(es){es.forEach(function(e){hdr.classList.toggle('hide-logo',e.isIntersecting);});},{rootMargin:'-68px 0px 0px 0px'}).observe(bm);}
+
+  // current section in the menu
+  var secs=['about','services','contact'].map(function(id){return document.getElementById(id);}), links=[].slice.call(menu.querySelectorAll('ul a')), last;
+  function spy(){var cur=null,line=innerHeight*.4;secs.forEach(function(s){if(s&&s.getBoundingClientRect().top<line)cur=s.id;});
+    if(cur===last)return;last=cur;links.forEach(function(a){if(a.getAttribute('href')==='#'+cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});}
+  var t=false;addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(function(){t=false;spy();});}},{passive:true});spy();
+
+  // reveal on scroll
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});rv.forEach(function(el){io.observe(el);});}
+  else rv.forEach(function(el){el.classList.add('in');});
+
+  // enquiry form (not connected)
+  var f=document.getElementById('enquiry'), s=document.getElementById('status');
+  f.addEventListener('submit',function(e){e.preventDefault();
+    var bad=[].filter.call(f.querySelectorAll('[required]'),function(el){var b=!el.value.trim()||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value));el.setAttribute('aria-invalid',b?'true':'false');return b;});
+    if(bad.length){s.textContent='Please complete: '+bad.map(function(el){return f.querySelector('label[for="'+el.id+'"]').textContent;}).join(', ')+'. Use a full email address, such as name@example.com.';bad[0].focus();return;}
+    s.textContent='This design option isn’t connected yet, so nothing was sent. Please use the email address shown.';});
+})();
+</script>
+</body>
+</html>

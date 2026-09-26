@@ -11,6 +11,10 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 | 4a | Open sky, blue | `/option-4a/` |
 | 4b | Open sky, grey | `/option-4b/` |
 | 5 | Exhibition space: Siskind hung in a lit room; rest of the page as Option 4a | `/option-5/` |
+| A | Refined minimal (from the grey direction) | `/option-a/` |
+| B | Editorial art world | `/option-b/` |
+| C | Services-led | `/option-c/` |
+| D | Option 5 as separate pages: `/option-d/`, `/option-d/about/`, `/option-d/services/`, `/option-d/contact/` | `/option-d/` |
 
 Images and fonts are shared from `/assets/`.
 
