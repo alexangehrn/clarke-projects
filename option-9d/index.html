@@ -168,7 +168,8 @@ html:not(.walk) .pnl{order:var(--o)}
 
 /* walk mode */
 .walk .walk-root{display:block}
-.walk .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#E3EAEE}
+.walk .walk-ui .bar{bottom:0}
+.walk .stage{position:relative;height:calc(100vh - var(--hh));overflow:hidden;background:#E3EAEE}
 .walk .cam{position:absolute;left:0;top:0;transform-origin:0 0;perspective:1000px}
 .walk .world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
 .walk .world > *{position:absolute;backface-visibility:hidden}
@@ -182,8 +183,7 @@ html:not(.walk) .pnl{order:var(--o)}
 .walk .p-end{align-items:center}
 .walk .p-sisr{align-items:flex-end;padding-right:100px}
 .walk .p-sisr .frm{width:470px}
-.has-plan .walk-ui .room{display:none}
-.has-plan .walk .cue{bottom:70px}
+.has-plan.walk .steer{bottom:78px}
 .walk .p-first .frm{width:500px}
 
 .walk .wall{background:linear-gradient(to top,#C9D2D7 0 14px,rgba(0,0,0,0) 14px),linear-gradient(to bottom,rgba(21,26,30,.06),rgba(21,26,30,0) 14%),var(--wall)}
@@ -200,15 +200,23 @@ html:not(.walk) .pnl{order:var(--o)}
 .walk .sign{display:flex;align-items:flex-end;justify-content:center;padding-bottom:110px;font:500 22px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--graphite)}
 .walk .dim{background:linear-gradient(to bottom,rgba(21,26,30,.08),rgba(21,26,30,.02))}
 
-.walk .hero{position:absolute;z-index:5;left:max(var(--m),calc((100vw - 1312px) / 2));top:calc(50% + var(--hh) / 2);transform:translateY(-50%);max-width:38em;pointer-events:none}
+.walk .hero{position:absolute;z-index:5;left:max(var(--m),calc((100vw - 1312px) / 2));top:50%;transform:translateY(-50%);max-width:38em;pointer-events:none}
 .walk .hero .bigmark{font-size:clamp(40px,4.5vw,76px)}
 .walk .hero .words{padding:28px 32px 30px 0}
 .walk .walk-ui{position:absolute;z-index:6;left:0;right:0;bottom:0;top:0;pointer-events:none}
-.walk .cue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);text-align:center;color:var(--graphite)}
-.walk .cue i{display:block;width:1px;height:38px;margin:12px auto 0;background:var(--ink);transform-origin:top;animation:cue 2.4s ease-in-out infinite}
-@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.walk .steer{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:flex;align-items:center;gap:22px;pointer-events:auto}
+.walk .steer button{position:relative;height:52px;min-width:52px;border-radius:26px;border:1px solid rgba(21,26,30,.35);background:rgba(244,247,248,.72);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 15px;
+  font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:background .35s,color .35s,border-color .35s,opacity .35s}
+.walk .steer button:hover{background:var(--ink);color:#F4F7F8;border-color:var(--ink)}
+.walk .steer button:disabled{opacity:.28;cursor:default;background:rgba(244,247,248,.72);color:var(--ink);border-color:rgba(21,26,30,.35)}
+.walk .steer svg{width:20px;height:20px;flex:none}
+.walk .steer .room{position:static;min-width:11em;text-align:center;opacity:1!important;transition:none}
+.walk .steer button.to-contact svg{transform:rotate(90deg)}
+.walk .steer button.invite::after{content:"";position:absolute;inset:-7px;border-radius:33px;border:1px solid rgba(21,26,30,.3);animation:invite 2.6s ease-out infinite}
+@keyframes invite{0%{transform:scale(.9);opacity:0}40%{opacity:1}100%{transform:scale(1.18);opacity:0}}
+.walk .steer button:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 .walk .bar{position:absolute;left:0;bottom:0;height:2px;background:var(--ink);width:0}
-.walk .room{position:absolute;right:max(var(--m),calc((100vw - 1312px) / 2));bottom:22px;transition:opacity .6s}
 .walk .contact{position:relative;z-index:2}
 
 /* indications: plan strip (promenade) */
@@ -224,7 +232,7 @@ html:not(.walk) .pnl{order:var(--o)}
 .plan li:first-child::before{left:0}.plan li:last-child::before{left:auto;right:0}
 
 /* indications: top-down map (guided) */
-.map{position:absolute;left:22px;transition:opacity .8s;top:calc(50% + var(--hh) / 2);transform:translateY(-50%);pointer-events:auto}
+.map{position:absolute;left:22px;transition:opacity .8s;top:50%;transform:translateY(-50%);pointer-events:auto}
 .map svg{width:66px;height:auto;overflow:visible;display:block}
 .map .walls{fill:none;stroke:rgba(21,26,30,.35);stroke-width:1.2}
 .map .part{stroke:rgba(21,26,30,.55);stroke-width:3;stroke-linecap:round}
@@ -283,7 +291,7 @@ html:not(.walk) .pnl{order:var(--o)}
     <figure class="frm" aria-labelledby="w-a w-t"><div class="mat"><img src="../assets/siskind.jpg" width="937" height="937" alt="Black-and-white photograph by Aaron Siskind: a diver seen from below, suspended against a white sky, arms and legs thrown outward."></div></figure>
     <p class="lab"><span id="w-a">Aaron Siskind</span><em id="w-t">Pleasures and Terrors of Levitation</em></p></div></section>
 </div></div>
-<div class="walk-ui" aria-hidden="false"><p class="cue kicker" id="cue" aria-hidden="true">Scroll to walk through<i></i></p><p class="room kicker" id="room" aria-hidden="true"></p><span class="bar" id="bar"></span><nav class="map" aria-label="Plan of the gallery"><svg viewBox="0 0 96 212" aria-hidden="true"><rect class="walls" x="8.0" y="6.0" width="80.0" height="200.0"/><line class="part" x1="34.7" y1="7.0" x2="61.3" y2="7.0"/><line class="part" data-i="1" x1="52.7" y1="148.5" x2="86.0" y2="162.7"/><line class="part" data-i="2" x1="10.0" y1="127.3" x2="43.3" y2="113.1"/><line class="part" data-i="3" x1="52.7" y1="77.7" x2="86.0" y2="91.8"/><line class="part" data-i="4" x1="10.0" y1="56.4" x2="43.3" y2="42.2"/><circle class="stop" data-go="0" cx="48.0" cy="206.8" r="9"/><circle class="stop" data-go="1" cx="56.0" cy="172.7" r="9"/><circle class="stop" data-go="2" cx="40.0" cy="137.2" r="9"/><circle class="stop" data-go="3" cx="56.0" cy="101.8" r="9"/><circle class="stop" data-go="4" cx="40.0" cy="66.4" r="9"/><circle class="stop" data-go="5" cx="48.0" cy="25.7" r="9"/><path class="cone" id="mcone" d=""/><circle class="me" id="mme" r="3.2"/></svg><ol><li><a href="#" data-go="0">Entrance</a></li><li><a href="#" data-go="1">Introduction</a></li><li><a href="#" data-go="2">About</a></li><li><a href="#" data-go="3">Services</a></li><li><a href="#" data-go="4">Special Projects</a></li><li><a href="#" data-go="5">Aaron Siskind</a></li></ol></nav></div>
+<div class="walk-ui"><div class="steer"><button type="button" id="prev" aria-label="Previous room"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><p class="room kicker" id="room" aria-live="polite"></p><button type="button" id="next" aria-label="Next room"><span id="next-lab"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><span class="bar" id="bar"></span><nav class="map" aria-label="Plan of the gallery"><svg viewBox="0 0 96 212" aria-hidden="true"><rect class="walls" x="8.0" y="6.0" width="80.0" height="200.0"/><line class="part" x1="34.7" y1="7.0" x2="61.3" y2="7.0"/><line class="part" data-i="1" x1="52.7" y1="148.5" x2="86.0" y2="162.7"/><line class="part" data-i="2" x1="10.0" y1="127.3" x2="43.3" y2="113.1"/><line class="part" data-i="3" x1="52.7" y1="77.7" x2="86.0" y2="91.8"/><line class="part" data-i="4" x1="10.0" y1="56.4" x2="43.3" y2="42.2"/><circle class="stop" data-go="0" cx="48.0" cy="206.8" r="9"/><circle class="stop" data-go="1" cx="56.0" cy="172.7" r="9"/><circle class="stop" data-go="2" cx="40.0" cy="137.2" r="9"/><circle class="stop" data-go="3" cx="56.0" cy="101.8" r="9"/><circle class="stop" data-go="4" cx="40.0" cy="66.4" r="9"/><circle class="stop" data-go="5" cx="48.0" cy="25.7" r="9"/><path class="cone" id="mcone" d=""/><circle class="me" id="mme" r="3.2"/></svg><ol><li><a href="#" data-go="0">Entrance</a></li><li><a href="#" data-go="1">Introduction</a></li><li><a href="#" data-go="2">About</a></li><li><a href="#" data-go="3">Services</a></li><li><a href="#" data-go="4">Special Projects</a></li><li><a href="#" data-go="5">Aaron Siskind</a></li></ol></nav></div>
 </div>
 </div>
 <section class="contact" id="contact" aria-labelledby="contact-h"><div class="wrap grid"><h2 id="contact-h">Let’s Work Together</h2><dl class="details">
@@ -299,7 +307,7 @@ html:not(.walk) .pnl{order:var(--o)}
   <p class="status" id="status" role="status" aria-live="polite"></p>
 </form></div><div class="foot"><div class="wrap"><span class="logo">Clarke Projects</span><span>New York</span><span>© 2026</span></div></div></section>
 </main>
-<script>window.WALK={"stations": [{"x": 0, "z": 1400, "a": 0, "hold": 0.6, "name": "", "travel": 1.9}, {"x": 300, "z": -334, "a": 30, "hold": 1.4, "name": "", "key": ""}, {"x": -300, "z": -2134, "a": -30, "hold": 1.8, "name": "About", "key": "about"}, {"x": 300, "z": -3934, "a": 30, "hold": 1.8, "name": "Services", "key": "services"}, {"x": -300, "z": -5734, "a": -30, "hold": 1.4, "name": "Special Projects", "key": "projects"}, {"x": 0, "z": -7800, "a": 0, "hold": 1.2, "name": "Aaron Siskind", "key": ""}], "travel": 2.0, "vh": 0.75, "damp": 0.045, "shift": 12, "snap": true};window.WALK_UI=function(cur,tgt){var me=document.getElementById('mme');if(!me)return;
+<script>window.WALK={"stations": [{"x": 0, "z": 1400, "a": 0, "hold": 0.6, "name": "", "travel": 1.9}, {"x": 300, "z": -334, "a": 30, "hold": 1.4, "name": "Introduction", "key": ""}, {"x": -300, "z": -2134, "a": -30, "hold": 1.8, "name": "About", "key": "about"}, {"x": 300, "z": -3934, "a": 30, "hold": 1.8, "name": "Services", "key": "services"}, {"x": -300, "z": -5734, "a": -30, "hold": 1.4, "name": "Special Projects", "key": "projects"}, {"x": 0, "z": -7800, "a": 0, "hold": 1.2, "name": "Aaron Siskind", "key": ""}], "travel": 2.0, "step": 2400, "shift": 12, "enter": "Enter the gallery"};window.WALK_UI=function(cur,tgt){var me=document.getElementById('mme');if(!me)return;
   var mp=document.querySelector('.map');mp.style.opacity=(tgt.i===0&&!tgt.moving)?0:1;
   var x=(cur.x+1500)/3000*80+8, y=(cur.z-(-8800))/10160*200+6, a=cur.a*Math.PI/180, dx=Math.sin(a), dy=-Math.cos(a);
   me.setAttribute('cx',x.toFixed(1));me.setAttribute('cy',y.toFixed(1));
@@ -318,49 +326,51 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-go]'
     if(bad.length){st.textContent='Please complete: '+bad.map(function(el){return f.querySelector('label[for="'+el.id+'"]').textContent;}).join(', ')+'. Use a full email address, such as name@example.com.';bad[0].focus();return;}
     st.textContent='This design option isn’t connected yet, so nothing was sent. Please use the email address shown.';});
 
-  var root=document.getElementById('walk'), cam=document.getElementById('cam'), world=document.getElementById('world'), hero=document.getElementById('home'),
-      cue=document.getElementById('cue'), bar=document.getElementById('bar'), room=document.getElementById('room'),
-      links=[].slice.call(menu.querySelectorAll('ul a')), S=C.stations, total=0, on=false, sc=1;
-  S.forEach(function(s,i){s.start=total;total+=s.hold+(i<S.length-1?(s.travel||C.travel):0);
-    if(i<S.length-1){var pts=[s].concat(s.via||[],[S[i+1]]),L=[0];for(var k=1;k<pts.length;k++)L.push(L[k-1]+Math.hypot(pts[k].x-pts[k-1].x,pts[k].z-pts[k-1].z)+Math.abs(pts[k].a-pts[k-1].a)*6);s.pts=pts;s.L=L;}});
+  var stage=document.querySelector('.stage'), cam=document.getElementById('cam'), world=document.getElementById('world'), hero=document.getElementById('home'),
+      bar=document.getElementById('bar'), room=document.getElementById('room'), prev=document.getElementById('prev'), next=document.getElementById('next'), nextLab=document.getElementById('next-lab'),
+      links=[].slice.call(menu.querySelectorAll('ul a')), S=C.stations, total=0, on=false, sc=1, last=S.length-1;
+  S.forEach(function(s,i){s.start=total;total+=s.hold+(i<last?(s.travel||C.travel):0);
+    if(i<last){var pts=[s].concat(s.via||[],[S[i+1]]),L=[0];for(var k=1;k<pts.length;k++)L.push(L[k-1]+Math.hypot(pts[k].x-pts[k-1].x,pts[k].z-pts[k-1].z)+Math.abs(pts[k].a-pts[k-1].a)*6);s.pts=pts;s.L=L;}});
   function want(){return matchMedia('(min-width: 900px) and (min-height: 560px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches;}
   function ease(x){return -(Math.cos(Math.PI*x)-1)/2;}
   function along(s,u){var L=s.L,d=u*L[L.length-1];for(var k=1;k<L.length;k++){if(d<=L[k]||k===L.length-1){var p=s.pts[k-1],q=s.pts[k],r=(d-L[k-1])/((L[k]-L[k-1])||1);
       return {x:p.x+(q.x-p.x)*r,z:p.z+(q.z-p.z)*r,a:p.a+(q.a-p.a)*r};}}}
-  function target(t){for(var i=0;i<S.length;i++){var s=S[i];
-      if(t<=s.start+s.hold||i===S.length-1)return {x:s.x,z:s.z,a:s.a,i:i,moving:false};
+  function at(t){for(var i=0;i<S.length;i++){var s=S[i];
+      if(t<=s.start+s.hold||i===last)return {x:s.x,z:s.z,a:s.a,i:i,moving:false};
       var tt=(t-s.start-s.hold)/(s.travel||C.travel);if(tt<1){var p=along(s,ease(tt));p.i=tt<.5?i:i+1;p.moving=true;return p;}}}
-  var cur=null, tgt=null, T=0, curT=null, dist=0, raf=0, last=0;
-  function layout(){on=want();html.classList.toggle('walk',on);
-    if(!on){root.style.height='';world.style.transform='';return;}
-    sc=Math.min(innerWidth/1440,innerHeight/900);cam.style.width=(innerWidth/sc)+'px';cam.style.height=(innerHeight/sc)+'px';cam.style.transform='scale('+sc+')';
-    root.style.height=(total*C.vh*innerHeight+innerHeight)+'px';read();if(curT===null)curT=T;kick();}
-  function read(){var span=root.offsetHeight-innerHeight, y=scrollY-root.offsetTop;T=Math.max(0,Math.min(1,y/span))*total;tgt=target(T);tgt.y=y;tgt.span=span;}
-  function kick(){if(!raf){last=performance.now();raf=requestAnimationFrame(tick);}}
-  // the camera eases along the walking route itself (never cutting corners), at the same pace on any device
-  function tick(now){raf=0;if(!on)return;
-    var dt=Math.min(100,Math.max(1,now-last));last=now;var k=1-Math.pow(1-C.damp,dt/16.7);
-    curT+=(T-curT)*k;if(Math.abs(T-curT)<1e-4)curT=T;
-    var c=target(curT), prev=cur||c;cur=c;
-    var sp=Math.hypot(c.x-prev.x,c.z-prev.z);dist+=sp;var bob=Math.sin(dist/150)*Math.min(4,sp*.35);
+  function holdOf(t){for(var i=0;i<S.length;i++){if(t>=S[i].start-1e-6&&t<=S[i].start+S[i].hold+1e-6)return i;}return -1;}
+  var curT=0, goalT=0, goal=0, raf=0, lastNow=0, dist=0, prevC=null, rate=1/C.step;   // time units per ms: one travel segment per step
+  function goTo(j){j=Math.max(0,Math.min(last,j));goal=j;goalT=S[j].start+(curT>S[j].start?S[j].hold:0);
+    if(!raf){lastNow=performance.now();raf=requestAnimationFrame(tick);}paintUI();}
+  function tick(now){raf=0;if(!on)return;var dt=Math.min(400,now-lastNow);lastNow=now;
+    // pass through intermediate rooms without pausing
+    var h=holdOf(curT);if(h>=0&&h!==goal){curT=goalT>curT?S[h].start+S[h].hold+1e-6:S[h].start-1e-6;}
+    var step=rate*dt*((S[Math.max(0,Math.min(last,(at(curT).i)))].travel||C.travel)/C.travel);
+    if(Math.abs(goalT-curT)<=step)curT=goalT;else curT+=goalT>curT?step:-step;
+    render();if(curT!==goalT)raf=requestAnimationFrame(tick);}
+  function render(){var c=at(curT), p=prevC||c;prevC=c;var sp=Math.hypot(c.x-p.x,c.z-p.z);dist+=sp;var bob=Math.sin(dist/150)*Math.min(4,sp*.4);
     world.style.transform='translateZ(1000px) rotateY('+c.a.toFixed(3)+'deg) translate3d('+(-c.x).toFixed(2)+'px,'+(-bob).toFixed(2)+'px,'+(-c.z).toFixed(2)+'px)';
     var leave=Math.max(0,Math.min(1,(curT-S[0].hold)/((S[0].travel||C.travel)*.45)));
-    cam.style.perspectiveOrigin=(50+C.shift*(1-ease(leave)))+'% 50%';
-    hero.style.opacity=(1-leave*1.6).toFixed(3);cue.style.opacity=(1-leave*3).toFixed(3);cue.style.display=leave>.34?'none':'';hdr.classList.toggle('hide-logo',leave<.4);
+    cam.style.perspectiveOrigin=(50+C.shift*(1-ease(leave)))+'% 50%';hero.style.opacity=(1-leave*1.6).toFixed(3);hdr.classList.toggle('hide-logo',leave<.4);
     bar.style.width=(curT/total*100).toFixed(2)+'%';
-    var name=S[c.i].name;if(room.textContent!==name)room.textContent=name;room.style.opacity=c.moving?0:1;
-    links.forEach(function(a){var h=a.getAttribute('href').slice(1);a.toggleAttribute('aria-current',(S[c.i].key===h)||(h==='contact'&&tgt.y>tgt.span));});
-    if(window.WALK_UI)window.WALK_UI(c,c,curT,total);
-    if(curT!==T)kick();}
-  function go(i){var s=S[i], span=root.offsetHeight-innerHeight;scrollTo({top:root.offsetTop+(s.start+s.hold*.5)/total*span,behavior:'smooth'});}
-  window.WALK_GO=go;
-  var idle=0;
-  addEventListener('scroll',function(){if(!on)return;read();kick();
-    if(C.snap){clearTimeout(idle);idle=setTimeout(function(){read();if(tgt.moving&&tgt.y>0&&tgt.y<tgt.span)go(tgt.i);},260);}},{passive:true});
-  addEventListener('resize',layout);
+    if(window.WALK_UI)window.WALK_UI(c,{i:c.i,moving:c.moving},curT,total);
+    }
+  function paintUI(){var i=goal, s=S[i];room.textContent=i===0?C.enter:(s.name||'');
+    prev.disabled=goal===0;next.classList.toggle('to-contact',goal===last);nextLab.textContent=goal===last?'Contact':'';
+    next.setAttribute('aria-label',goal===last?'Go to contact':'Next room');
+    next.classList.toggle('invite',goal===0&&curT===0);
+    links.forEach(function(a){var k=a.getAttribute('href').slice(1);a.toggleAttribute('aria-current',S[goal].key===k);});}
+  prev.addEventListener('click',function(){goTo(goal-1);});
+  next.addEventListener('click',function(){if(goal===last){document.getElementById('contact').scrollIntoView({behavior:'smooth'});return;}goTo(goal+1);});
+  addEventListener('keydown',function(e){if(!on||/input|textarea/i.test((e.target.tagName||'')))return;var r=stage.getBoundingClientRect();if(r.bottom<innerHeight*.5||r.top>innerHeight*.5)return;
+    if(e.key==='ArrowRight'){e.preventDefault();next.click();}else if(e.key==='ArrowLeft'){e.preventDefault();prev.click();}});
+  window.WALK_GO=function(i){stage.scrollIntoView({behavior:'smooth'});goTo(i);};
   links.concat([].slice.call(document.querySelectorAll('.site-header .logo'))).forEach(function(a){a.addEventListener('click',function(e){
     menu.classList.remove('open');btn.setAttribute('aria-expanded','false');var h=a.getAttribute('href');if(!on)return;
-    var i=-1;S.forEach(function(s,k){if(i<0&&(s.key===h.slice(1)||(h==='#home'&&k===0)))i=k;});if(i<0)return;e.preventDefault();go(i);});});
+    var i=-1;S.forEach(function(s,k){if(i<0&&(s.key===h.slice(1)||(h==='#home'&&k===0)))i=k;});if(i<0)return;e.preventDefault();window.WALK_GO(i);});});
+  function layout(){on=want();html.classList.toggle('walk',on);if(!on){world.style.transform='';return;}
+    var W=stage.clientWidth,H=stage.clientHeight;sc=Math.min(W/1440,H/900);cam.style.width=(W/sc)+'px';cam.style.height=(H/sc)+'px';cam.style.transform='scale('+sc+')';render();paintUI();}
+  addEventListener('resize',layout);
   var mark=document.getElementById('mark');
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){if(!on)hdr.classList.toggle('hide-logo',es[0].isIntersecting);},{rootMargin:'-68px 0px 0px 0px'}).observe(mark);
   layout();
