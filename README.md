@@ -8,7 +8,7 @@ Static site, no build step. Each option lives at its own path:
 | J11 · Triptych | `/j11-triptych/` |
 | J13 · Wall band | `/j13-wall-band/` |
 
-Home-section explorations (first screen only): `/h1-wall-label/`, `/h2-passe-partout/`, `/h3-open-sky/`, `/h4-dive/`, `/h5-menu-index/`, `/h6-night/`.
+Home-section explorations: `/h1-wall-label/` and `/h3-open-sky/` (full pages, J9 below the home), `/h6-night/` (home only).
 
 `/` is an index linking to all three. Images are shared from `/assets/`.
 
