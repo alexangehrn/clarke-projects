@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clarke Projects | Art Advisory &amp; Collection Management NYC</title>
+<meta name="description" content="New York art advisory and collection management for private and corporate collectors of modern, contemporary and emerging art. Led by Benjamin Clarke.">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{--paper:#D9E5EC;--paper-2:#E7EEF2;--ink:#151A1E;--graphite:#3F4B54;--film:#121416;--marker:#F4F6F7;--sky:#DBDBDD;
+  --sans:'Jost','Futura','Helvetica Neue',Arial,sans-serif;--logo:'Cormorant Garamond',serif;--m:clamp(20px,4.4vw,64px)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:400 17px/1.62 var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.logo{font-family:var(--logo);font-weight:300;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;white-space:nowrap;line-height:1}
+.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:28px}
+.menu a{display:inline-block;padding-block:8px;text-decoration:none;font-size:15px;letter-spacing:.02em;
+  background:linear-gradient(currentColor,currentColor) 0 calc(100% - 4px)/0 1px no-repeat;transition:background-size .35s ease}
+.menu a:hover,.menu a:focus-visible{background-size:100% 1px}
+.kicker{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;margin:0}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;z-index:99;text-decoration:none}
+.skip:focus{top:12px}
+h1,p,figure{margin:0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+body{background:#1B1E21}
+.mat{min-height:100svh;margin:clamp(8px,1.1vw,14px);background:#F3F2EE;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),inset 0 0 60px rgba(120,110,90,.08);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(28px,4vh,48px) var(--m) clamp(36px,6vh,72px);min-height:calc(100svh - 2*clamp(8px,1.1vw,14px))}
+.stamp{display:flex;flex-direction:column;align-items:center;gap:10px}
+.stamp .logo{font-size:clamp(20px,1.8vw,26px);color:#77726A;text-shadow:0 1px 0 #fff,0 -1px 0 rgba(0,0,0,.08)}
+.stamp .menu ul{gap:26px}.stamp .menu a{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+.window{margin:clamp(28px,5vh,56px) 0 0;width:min(46vh,78vw)}
+.bevel{padding:7px;background:linear-gradient(135deg,#FFFFFF 0%,#E4E1D9 50%,#D6D2C8 100%);
+  box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 rgba(0,0,0,.12)}
+.bevel img{box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.pencil{display:flex;justify-content:space-between;gap:16px;width:min(46vh,78vw);margin-top:16px;
+  font:300 italic 14px/1.4 var(--sans);color:#6D6A62;letter-spacing:.01em;text-align:left}
+.pencil span:last-child{text-align:right}
+.inscription{margin-top:auto;padding-top:clamp(32px,6vh,64px);max-width:640px}
+.h1{font-weight:300;font-size:clamp(24px,2.3vw,34px);line-height:1.2;letter-spacing:.005em}
+.inscription .city{margin-top:12px;color:#6D6A62}
+.inscription .intro{margin-top:18px;font-weight:300;font-size:16px;color:var(--graphite)}
+@media (max-width:600px){.pencil{flex-direction:column;gap:2px}.pencil span:last-child{text-align:left}
+  .stamp .menu ul{gap:18px}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#h1">Skip to content</a>
+<section class="mat" id="home" aria-labelledby="h1">
+  <header class="stamp"><a class="logo" href="#home">Clarke Projects</a><nav class="menu" aria-label="Main"><ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></nav></header>
+  <figure class="window" aria-labelledby="cap">
+    <div class="bevel"><img src="../assets/siskind.jpg" width="937" height="937" alt="Black-and-white photograph by Aaron Siskind: a diver seen from below, suspended against a white sky, arms and legs thrown outward."></div>
+    <figcaption class="pencil" id="cap"><span>Aaron Siskind</span><span>Pleasures and Terrors of Levitation</span></figcaption>
+  </figure>
+  <main class="inscription"><h1 class="h1" id="h1">Art Advisory &amp; Collection Management</h1><p class="kicker city">New York</p><p class="intro">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p></main>
+</section>
+</body>
+</html>
