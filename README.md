@@ -16,6 +16,8 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 | 9B | 3D Gallery walk, Rooms and doorways: the same loop, a doorway with a sign on each leg | `/option-9b/` |
 | 9C | 3D Gallery walk, Promenade: around the walls of one square room | `/option-9c/` |
 | 9D | 3D Gallery walk, Rotunda: hexagonal room, turn clockwise, plan | `/option-9d/` |
+| 10A | One entrance walk down a corridor to the Siskind, then Option 1 as a normal page | `/option-10a/` |
+| 10B | One entrance glide along a gallery wall to the Siskind, then Option 1 as a normal page | `/option-10b/` |
 
 Images and fonts are shared from `/assets/`.
 
