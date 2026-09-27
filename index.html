@@ -25,11 +25,17 @@
   a:focus-visible { outline:2px solid var(--ink); outline-offset:4px; }
   h2.sec { margin:0 0 14px; font:500 12px/1.4 'Jost',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--graphite); }
   ol.current { margin-bottom:56px; }
-  h2.test { margin-top:72px; }
-  .note { margin:-4px 0 18px; font-size:15px; font-weight:300; color:var(--graphite); max-width:34em; }
-  .studies .name { color:var(--graphite); }
   @media (max-width:480px){ a { grid-template-columns:6.4em 1fr auto; gap:8px; } }
   @media (prefers-reduced-motion:reduce){ .arrow { transition:none; } }
+  .lab { margin-top:72px; padding:24px 24px 8px; border:1px dashed rgba(21,26,30,.35); background:rgba(255,255,255,.18); }
+  .lab-h { margin:0 0 10px; font:500 12px/1.4 'Jost',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--ink); }
+  .lab .note { margin:0 0 18px; font-size:15px; font-weight:300; color:var(--graphite); max-width:34em; }
+  .lab ol { opacity:.55; transition:opacity .3s; }
+  .lab ol:hover, .lab ol:focus-within { opacity:.85; }
+  .lab a { grid-template-columns:7em 1fr auto; }
+  .lab .name { font-size:clamp(17px,1.8vw,19px); color:var(--graphite); }
+  .tag { font:500 10.5px/1 'Jost',sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--graphite); border:1px solid rgba(21,26,30,.4); padding:5px 8px; white-space:nowrap; align-self:center; }
+  @media (max-width:480px){ .lab { padding:18px 14px 4px; } .lab a { grid-template-columns:5.6em 1fr auto; } }
 </style>
 </head>
 <body>
@@ -51,14 +57,16 @@
     <li><a target="_blank" rel="noopener" href="option-5/"><span class="num">Option 5</span><span class="name">Gallery style, Blocks</span><span class="arrow" aria-hidden="true">→</span></a></li>
     <li><a target="_blank" rel="noopener" href="option-6/"><span class="num">Option 6</span><span class="name">Different pages navigation</span><span class="arrow" aria-hidden="true">→</span></a></li>
   </ol>
-  <h2 class="sec test">Animation studies</h2>
-  <p class="note">Explorations for research and to see how motion could look — not design proposals.</p>
+  <section class="lab" aria-labelledby="lab-h">
+  <h2 class="lab-h" id="lab-h">Animation discovery — not design proposals</h2>
+  <p class="note">Work in progress. These pages only test how movement could feel. They are not options to choose from.</p>
   <ol class="studies">
-    <li><a target="_blank" rel="noopener" href="option-7a/"><span class="num">Study 7A</span><span class="name">Entering the gallery, corridor</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a target="_blank" rel="noopener" href="option-7b/"><span class="num">Study 7B</span><span class="name">Entering the gallery, along the wall</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a target="_blank" rel="noopener" href="option-8a/"><span class="num">Study 8A</span><span class="name">Gallery walk, corridor loop</span><span class="arrow" aria-hidden="true">→</span></a></li>
-    <li><a target="_blank" rel="noopener" href="option-8b/"><span class="num">Study 8B</span><span class="name">Gallery walk, rotunda</span><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-7a/"><span class="num">Study 7A</span><span class="name">Entering the gallery, corridor</span><span class="tag">Not ready</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-7b/"><span class="num">Study 7B</span><span class="name">Entering the gallery, along the wall</span><span class="tag">Not ready</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-8a/"><span class="num">Study 8A</span><span class="name">Gallery walk, corridor loop</span><span class="tag">Not ready</span></a></li>
+    <li><a target="_blank" rel="noopener" href="option-8b/"><span class="num">Study 8B</span><span class="name">Gallery walk, rotunda</span><span class="tag">Not ready</span></a></li>
   </ol>
+  </section>
 </main>
 </body>
 </html>
