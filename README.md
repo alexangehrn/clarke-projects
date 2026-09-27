@@ -12,10 +12,6 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 | 4B | Art Background, Grey | `/option-4b/` |
 | 5 | Gallery style, Blocks | `/option-5/` |
 | 6 | Different pages navigation: `/option-6/`, `/option-6/about/`, `/option-6/services/`, `/option-6/contact/` | `/option-6/` |
-| 7A | 3D Gallery walk, Corridor loop: clockwise square corridor | `/option-7a/` |
-| 7B | 3D Gallery walk, Rotunda: hexagonal room, turn clockwise, plan | `/option-7b/` |
-| 8A | One entrance walk down a corridor to the Siskind, then Option 1 as a normal page | `/option-8a/` |
-| 8B | One entrance glide along a gallery wall to the Siskind, then Option 1 as a normal page | `/option-8b/` |
 
 Images and fonts are shared from `/assets/`.
 
@@ -29,4 +25,11 @@ npx serve .
 
 Create `option-x/index.html` (images as `../assets/…`) and add a line to `index.html`.
 
-All walks: arrows (or keyboard) move one room clockwise; menu, plan and map jump directly.
+## Animation studies (explorations, not design proposals)
+
+| Study | Name | Path |
+|---|---|---|
+| 7A | Entering the gallery, corridor: one entrance walk, then Option 1 as a normal page | `/option-7a/` |
+| 7B | Entering the gallery, along the wall: one entrance glide, then Option 1 as a normal page | `/option-7b/` |
+| 8A | Gallery walk, corridor loop: arrows move one room clockwise | `/option-8a/` |
+| 8B | Gallery walk, rotunda: arrows turn clockwise, plan to jump | `/option-8b/` |
