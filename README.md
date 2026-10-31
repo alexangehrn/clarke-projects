@@ -2,19 +2,23 @@
 
 Static site, no build step. `/` lists all options; each one lives at its own path.
 
-The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variations 5A–5F.
+The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variations 5A–5E, each with a "scroll" version.
 
-5A–5F share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio.
+5A–5E share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio. Each "scroll" version is identical on desktop; on phones it moves one full page per scroll step, with page dots (eight pages).
 
 | Option | Name | Path |
 |---|---|---|
 | 5 | Gallery style, Blocks (unchanged) | `/option-5/` |
 | 5A | Portfolio index, museum style | `/option-5a/` |
+| 5A scroll | Portfolio index, museum style, page-by-page on phones | `/option-5a-scroll/` |
 | 5B | Portfolio as an Instagram grid | `/option-5b/` |
+| 5B scroll | Portfolio as an Instagram grid, page-by-page on phones | `/option-5b-scroll/` |
 | 5C | Portfolio in a gallery room | `/option-5c/` |
+| 5C scroll | Portfolio in a gallery room, page-by-page on phones | `/option-5c-scroll/` |
 | 5D | Portfolio on a gallery wall, four at a time | `/option-5d/` |
+| 5D scroll | Portfolio on a gallery wall, four at a time, page-by-page on phones | `/option-5d-scroll/` |
 | 5E | Portfolio box | `/option-5e/` |
-| 5F | Portfolio box, page-by-page scrolling on phones | `/option-5f/` |
+| 5E scroll | Portfolio box, page-by-page on phones | `/option-5e-scroll/` |
 
 ### Earlier rounds (still online, not linked from the index)
 
