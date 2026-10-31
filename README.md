@@ -11,6 +11,10 @@ The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variati
 | 5 | Gallery style, Blocks (unchanged) | `/option-5/` |
 | 5A | Portfolio index, museum style | `/option-5a/` |
 | 5A scroll | Portfolio index, museum style, page-by-page on phones | `/option-5a-scroll/` |
+| 5A scroll · SP1 | 5A scroll with Special Projects on phones as: film strip, swipe | `/option-5a-scroll-sp1/` |
+| 5A scroll · SP2 | 5A scroll with Special Projects on phones as: contact sheet | `/option-5a-scroll-sp2/` |
+| 5A scroll · SP3 | 5A scroll with Special Projects on phones as: editorial, no film | `/option-5a-scroll-sp3/` |
+| 5A scroll · SP4 | 5A scroll with Special Projects on phones as: one large, two thumbnails | `/option-5a-scroll-sp4/` |
 | 5B | Portfolio as an Instagram grid | `/option-5b/` |
 | 5B scroll | Portfolio as an Instagram grid, page-by-page on phones | `/option-5b-scroll/` |
 | 5C | Portfolio in a gallery room | `/option-5c/` |
