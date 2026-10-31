@@ -421,6 +421,15 @@ html:has(.viewer[open]){overflow:hidden}
   .rot-ctl{left:var(--m);right:var(--m)}
 }
 
+/* phones: buttons react to the first tap (no double-tap zoom delay) */
+button,.open{touch-action:manipulation}
+
+/* outbound-link arrow, drawn so it never turns into an emoji on iPhone */
+.ext{display:inline-block;width:.7em;height:.7em;margin-left:.4em;vertical-align:0;fill:none;stroke:currentColor;stroke-width:1.15;overflow:visible}
+
+/* Instagram tiles: a hairline border */
+.ig-tile{border:1px solid rgba(21,26,30,.14)}
+
 /* services: Clients as a row like the others */
 .services .svc:last-child{border-bottom:1px solid rgba(21,26,30,.2)}
 
@@ -509,7 +518,7 @@ html:has(.viewer[open]){overflow:hidden}
 <p>Benjamin Clarke has spent more than fourteen years working at the centre of the contemporary art world, with experience across galleries in Los Angeles, London and New York. A graduate of the University of Auckland, where he earned a Bachelor of Arts in Art History, he has worked directly with private collectors at the highest level, managing collections across multiple residences and developing a rigorous understanding of how significant collections are built, focused and grown over time.</p>
 <p>Clarke Projects was founded on the belief that the best collections are built slowly and with conviction, guided by genuine passion rather than market pressure. Benjamin brings a comprehensive understanding of the primary and secondary markets, the gallery and auction systems that establish and sustain artistic value, and the long-term thinking required to build a collection of lasting significance. He has a particular sensitivity to photography and artists who work at the intersection of the photographic and the contemporary, and an instinct for works that feel both intellectually alive and genuinely at home in the spaces they occupy.</p>
 <p>He works closely with each client to understand their tastes, their spaces and their aspirations, finding the territory where a collector's vision and his own eye for quality meet. His approach is rooted in trust, discretion and a long-term commitment to building collections that endure.</p>
-<p class="social"><a href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener">Instagram<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a></p>
+<p class="social"><a href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener">Instagram<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1.5 8.5 8.5 1.5M3 1.5h5.5V7"/></svg><span class="sr"> (opens in a new tab)</span></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1.5 8.5 8.5 1.5M3 1.5h5.5V7"/></svg><span class="sr"> (opens in a new tab)</span></a></p>
   </div>
 </section><section class="page services" id="services" aria-labelledby="services-h"><div class="wrap grid">
   <h2 class="kicker" id="services-h" style="grid-column:1 / -1">Services</h2>
@@ -525,7 +534,7 @@ html:has(.viewer[open]){overflow:hidden}
 <section class="page photos" id="projects" aria-label="Special Projects, installation photographs"><div class="wrap">
   <p class="kicker head" aria-hidden="true">Special Projects</p>
   <div class="strip"><div class="edge t" aria-hidden="true"><span>2</span><span>2A</span><span>3</span><span>3A</span><span>4</span><span>4A</span></div><figure class="frame"><div class="win"><img src="../assets/IMG_4656.webp" width="1000" height="1304" loading="lazy"  alt="Three art handlers lift a large looped wire sculpture above a work table in an office with city views."></div><figcaption><b>2</b>Installation, [city, year]</figcaption></figure><figure class="frame"><div class="win"><img src="../assets/IMG_4657.webp" width="1000" height="1316" loading="lazy" style="object-position:50% 60%" alt="A crew uses a vacuum lifter to move a large crated panel across a lawn, trees behind."></div><figcaption><b>3</b>Outdoor installation, [year]</figcaption></figure><figure class="frame crop"><div class="win"><img src="../assets/install-latoya.webp" width="1000" height="1333" loading="lazy"  alt="An aluminium stepladder beside a reception desk on a bare concrete floor during a hang."></div><figcaption><b>4</b>Hang in progress, [city, year]</figcaption></figure><div class="edge b" aria-hidden="true"><span>CLARKE PROJECTS · SPECIAL PROJECTS</span><span>SHEET 01</span></div></div></div></section><section class="page insta" id="instagram" aria-labelledby="ig-h"><div class="wrap grid">
-  <div class="ig-text"><h2 class="kicker" id="ig-h">Instagram</h2><p class="ig-lead">Follow on Instagram for more.</p><p class="ig-handle"><a href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener">@benjamin.clarke<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a></p></div>
+  <div class="ig-text"><h2 class="kicker" id="ig-h">Instagram</h2><p class="ig-lead">Follow on Instagram for more.</p><p class="ig-handle"><a href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener">@benjamin.clarke<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1.5 8.5 8.5 1.5M3 1.5h5.5V7"/></svg><span class="sr"> (opens in a new tab)</span></a></p></div>
   <a class="ig-grid" href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener" aria-label="Recent posts on Instagram, @benjamin.clarke (opens in a new tab)"><span class="ig-tile"><img src="../assets/works/bowers-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/charisse-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/menchelli-four-800.webp" width="675" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/hancock-800.webp" width="593" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/install-8417-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile bw"><img src="../assets/works/process-7198-800.webp" width="800" height="600" loading="lazy" alt=""></span></a>
 </div></section>
 <section class="page contact form" id="contact" aria-labelledby="contact-h"><div class="body"><div class="wrap grid"><h2 id="contact-h">Let’s Work Together</h2><dl class="details">
@@ -604,7 +613,7 @@ html:has(.viewer[open]){overflow:hidden}
     var restart=function(){if(!auto)return;clearInterval(timer);timer=setInterval(function(){if(!hold&&!document.hidden)go(ri+1);},ms);};
     document.getElementById('rot-prev').addEventListener('click',function(){go(ri-1,true);restart();});
     document.getElementById('rot-next').addEventListener('click',function(){go(ri+1,true);restart();});
-    [].forEach.call(RT.querySelectorAll('.ex-frame'),function(fr){fr.addEventListener('pointerenter',function(){hold=true;});fr.addEventListener('pointerleave',function(){hold=false;});});
+    [].forEach.call(RT.querySelectorAll('.ex-frame'),function(fr){fr.addEventListener('pointerenter',function(ev){if(ev.pointerType==='mouse')hold=true;});fr.addEventListener('pointerleave',function(){hold=false;});});
     restart();
   }
 
@@ -669,8 +678,10 @@ html:has(.viewer[open]){overflow:hidden}
           pv=side(gw[gi-1]),nx=side(gw[gi+1]),
           lx=(pv&&pv.right<fr.left?(pv.right+fr.left)/2:fr.left-56)-br.left,
           rx=(nx&&nx.left>fr.right?(nx.left+fr.right)/2:fr.right+56)-br.left,
-          y=fr.top+fr.height/2-br.top,lim=function(x){return Math.max(30,Math.min(br.width-30,x));};
+          vr=gfit.getBoundingClientRect(),vl=Math.max(vr.left,br.left)-br.left,vrt=Math.min(vr.right,br.right)-br.left,
+          y=fr.top+fr.height/2-br.top,lim=function(x){return Math.max(vl+26,Math.min(vrt-26,x));};
       gprev.style.left=lim(lx)+'px';gnext.style.left=lim(rx)+'px';gprev.style.top=gnext.style.top=y+'px';
+      gcount.style.right=(br.width-vrt+20)+'px';
     };
     var moved=null;
     var label=function(w){gdet.innerHTML='';if(!w)return;var sep=document.createElement('span'),a=document.createElement('span'),t=document.createElement('em');
@@ -721,10 +732,10 @@ html:has(.viewer[open]){overflow:hidden}
       var f=function(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur),q=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;SP.scrollLeft=from+(to-from)*q;
         if(p<1)anim=requestAnimationFrame(f);else SP.style.scrollSnapType='';};
       anim=requestAnimationFrame(f);};
-    var go=function(d){var n=units().length,i=(cur()+d+n)%n;glide(i*SP.clientWidth);};
+    var spGo=function(d){var n=units().length,i=(cur()+d+n)%n;glide(i*SP.clientWidth);};
     SP.addEventListener('scroll',upd,{passive:true});
-    document.getElementById('sp-prev').addEventListener('click',function(){go(-1);});
-    document.getElementById('sp-next').addEventListener('click',function(){go(1);});
+    document.getElementById('sp-prev').addEventListener('click',function(){spGo(-1);});
+    document.getElementById('sp-next').addEventListener('click',function(){spGo(1);});
     phone.addEventListener('change',function(){SP.scrollLeft=0;upd();});
     upd();
   }

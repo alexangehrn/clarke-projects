@@ -2,9 +2,9 @@
 
 Static site, no build step. `/` lists all options; each one lives at its own path.
 
-The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variations 5A–5E.
+The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variations 5A–5F.
 
-5A–5E share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio.
+5A–5F share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio.
 
 | Option | Name | Path |
 |---|---|---|
@@ -14,6 +14,7 @@ The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variati
 | 5C | Portfolio in a gallery room | `/option-5c/` |
 | 5D | Portfolio on a gallery wall, four at a time | `/option-5d/` |
 | 5E | Portfolio box | `/option-5e/` |
+| 5F | Portfolio box, page-by-page scrolling on phones | `/option-5f/` |
 
 ### Earlier rounds (still online, not linked from the index)
 
