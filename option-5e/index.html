@@ -425,6 +425,8 @@ html:has(.viewer[open]){overflow:hidden}
 .services .svc:last-child{border-bottom:1px solid rgba(21,26,30,.2)}
 
 /* portfolio heading and the sentence on representative works */
+/* tilted or fanned works must never widen the page (on phones that pushes the menu off-screen) */
+.works{overflow-x:clip}
 .works-head{margin:0 0 10px}
 .works-lede{margin:0 0 22px;max-width:44em;font-size:15.5px;font-weight:300;line-height:1.55;color:var(--graphite)}
 
@@ -658,20 +660,34 @@ html:has(.viewer[open]){overflow:hidden}
     var gbox=document.getElementById('g3-box'), gfit=document.getElementById('g3-fit'), gst=document.getElementById('g3-stage'), gpage=G.closest('.g3-page'),
         gw=[].slice.call(G.querySelectorAll('.g3-work')), gi=-1, gdet=document.getElementById('g3-det'), gout=document.getElementById('g3-out'),
         gstart=document.getElementById('g3-start'), gprev=document.getElementById('g3-prev'), gnext=document.getElementById('g3-next'),
-        OVER='translateZ(-40px) rotateY(0deg) translate3d(0px,0px,0px)', P=900, gs=1, small=window.matchMedia('(max-width:900px)');
+        gcount=document.getElementById('g3-count'), OVER='translateZ(-40px) rotateY(0deg) translate3d(0px,0px,0px)', P=900, gs=1, small=window.matchMedia('(max-width:900px)');
+    // The arrows sit in the gaps either side of the work, measured once the camera has stopped.
+    var place=function(){
+      gbox.classList.remove('moving');if(gi<0)return;
+      var br=gbox.getBoundingClientRect(),w=gw[gi],fr=w.querySelector('.ex-frame').getBoundingClientRect(),
+          side=function(o){return o&&o.parentNode===w.parentNode?o.querySelector('.ex-frame').getBoundingClientRect():null;},
+          pv=side(gw[gi-1]),nx=side(gw[gi+1]),
+          lx=(pv&&pv.right<fr.left?(pv.right+fr.left)/2:fr.left-56)-br.left,
+          rx=(nx&&nx.left>fr.right?(nx.left+fr.right)/2:fr.right+56)-br.left,
+          y=fr.top+fr.height/2-br.top,lim=function(x){return Math.max(30,Math.min(br.width-30,x));};
+      gprev.style.left=lim(lx)+'px';gnext.style.left=lim(rx)+'px';gprev.style.top=gnext.style.top=y+'px';
+    };
+    var moved=null;
     var label=function(w){gdet.innerHTML='';if(!w)return;var sep=document.createElement('span'),a=document.createElement('span'),t=document.createElement('em');
       sep.className='sep';sep.textContent=' · ';a.textContent=w.dataset.artist;t.textContent=w.dataset.title;
       gdet.appendChild(sep);gdet.appendChild(a);gdet.appendChild(document.createTextNode(', '));gdet.appendChild(t);};
     var cam=function(i,now){
       gi=i;var w=gw[i],d=w.dataset,k=400/(w.offsetHeight+30);
       if(small.matches)k=Math.min(k,gbox.clientWidth/gs*.72/w.offsetWidth);
-      if(now)gst.style.transition='none';
+      clearTimeout(moved);
+      if(now||reduce)gst.style.transition='none';else gbox.classList.add('moving');
       gst.style.transform='translateZ('+(P-P/k)+'px) rotateY('+d.ry+'deg) translate3d('+(-d.cx)+'px,'+(-d.cy)+'px,'+(-d.cz)+'px)';
-      if(now){void gst.offsetWidth;gst.style.transition='';}
+      if(now||reduce){void gst.offsetWidth;gst.style.transition='';requestAnimationFrame(place);}else moved=setTimeout(place,1550);
       G.classList.add('zoomed');G.classList.toggle('side',d.ry!=='0');[].forEach.call(G.querySelectorAll('.g3-wall'),function(x){x.classList.toggle('target',x===w.parentNode);});
-      gpage.classList.add('zoom');label(w);gprev.hidden=gnext.hidden=false;gout.hidden=small.matches;
+      gpage.classList.add('zoom');label(w);gprev.hidden=gnext.hidden=gcount.hidden=false;gout.hidden=small.matches;
+      gcount.textContent=pad(gi+1)+' / '+pad(gw.length);
     };
-    var overview=function(){if(small.matches)return;gi=-1;gst.style.transform=OVER;G.classList.remove('zoomed');gpage.classList.remove('zoom');label(null);gprev.hidden=gnext.hidden=gout.hidden=true;};
+    var overview=function(){if(small.matches)return;gi=-1;gst.style.transform=OVER;G.classList.remove('zoomed');gpage.classList.remove('zoom');label(null);gprev.hidden=gnext.hidden=gout.hidden=gcount.hidden=true;gbox.classList.remove('moving');};
     var fitRoom=function(){gs=small.matches?gbox.clientHeight/600:Math.min(gbox.clientWidth/1100,gbox.clientHeight/600);
       gfit.style.transform='translateX(-50%) scale('+gs+')';if(gi>=0)cam(gi,true);};
     var to=function(i){cam((i+gw.length)%gw.length);};
@@ -680,7 +696,7 @@ html:has(.viewer[open]){overflow:hidden}
       w.addEventListener('pointerenter',function(){if(gi<0)label(w);});
       w.addEventListener('pointerleave',function(){if(gi<0)label(null);});
     });
-    gstart.addEventListener('click',function(){to(0);gnext.focus();});
+    gstart.addEventListener('click',function(){to(0);});
     gnext.addEventListener('click',function(){to(gi+1);});
     gprev.addEventListener('click',function(){to(gi-1);});
     gout.addEventListener('click',function(){overview();gstart.focus();});
