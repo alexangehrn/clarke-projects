@@ -2,6 +2,17 @@
 
 Static site, no build step. `/` lists all options; each one lives at its own path.
 
+The index (`/`) lists the current round only: Option 5, Benjamin's favourite, and its variations.
+
+| Option | Name | Path |
+|---|---|---|
+| 5 | Gallery style, Blocks (unchanged) | `/option-5/` |
+| 5A | Rotating works, Portfolio grid | `/option-5a/` |
+| 5B | Works with arrows, one Portfolio | `/option-5b/` |
+| 5C | Siskind stays, Portfolio index | `/option-5c/` |
+
+### Earlier rounds (still online, not linked from the index)
+
 | Option | Name | Path |
 |---|---|---|
 | 1 | Gallery style | `/option-1/` |
@@ -10,10 +21,9 @@ Static site, no build step. `/` lists all options; each one lives at its own pat
 | 3B | Art selection style, Center aligned, Legend on bottom banner | `/option-3b/` |
 | 4A | Art Background, Blue | `/option-4a/` |
 | 4B | Art Background, Grey | `/option-4b/` |
-| 5 | Gallery style, Blocks | `/option-5/` |
 | 6 | Different pages navigation: `/option-6/`, `/option-6/about/`, `/option-6/services/`, `/option-6/contact/` | `/option-6/` |
 
-Images and fonts are shared from `/assets/`.
+Images and fonts are shared from `/assets/`. Web-sized artwork and process images for the round 2 options are in `/assets/works/` (WebP, 800 and 1600 px).
 
 ## Preview locally
 
@@ -25,7 +35,7 @@ npx serve .
 
 Create `option-x/index.html` (images as `../assets/…`) and add a line to `index.html`.
 
-## Animation studies (explorations, not design proposals)
+## Animation studies (explorations, not design proposals; not linked from the index)
 
 | Study | Name | Path |
 |---|---|---|
