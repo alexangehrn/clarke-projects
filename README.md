@@ -2,7 +2,7 @@
 
 Static site, no build step. `/` lists all options; each one lives at its own path.
 
-The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variations 5A–5E, each with a "scroll" version.
+The index (`/`) lists only the scroll versions 5A–5E (labelled Option 5A–5E). Option 5 and the non-scroll 5A–5E stay online but are not linked.
 
 5A–5E share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio. Each "scroll" version is identical on desktop; on phones it moves one full page per scroll step, with page dots (eight pages).
 
