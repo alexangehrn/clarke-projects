@@ -2,26 +2,18 @@
 
 Static site, no build step. `/` lists all options; each one lives at its own path.
 
-The index (`/`) lists Option 5 (Benjamin's favourite, unchanged), the current round 5D–5H, then the previous round 5A–5C.
+The index (`/`) lists Option 5 (Benjamin's favourite, unchanged) and its variations 5A–5E.
 
-5D–5H share one home page (the Siskind first, then the other works in the same frame and label, 3 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio.
+5A–5E share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio.
 
 | Option | Name | Path |
 |---|---|---|
 | 5 | Gallery style, Blocks (unchanged) | `/option-5/` |
-| 5D | Portfolio index, museum style | `/option-5d/` |
-| 5E | Portfolio as an Instagram grid | `/option-5e/` |
-| 5F | Portfolio in a gallery room | `/option-5f/` |
-| 5G | Portfolio on a spotlight wall | `/option-5g/` |
-| 5H | Portfolio box | `/option-5h/` |
-
-### Previous round
-
-| Option | Name | Path |
-|---|---|---|
-| 5A | Rotating works, Portfolio grid | `/option-5a/` |
-| 5B | Works with arrows, one Portfolio | `/option-5b/` |
-| 5C | Siskind stays, Portfolio index | `/option-5c/` |
+| 5A | Portfolio index, museum style | `/option-5a/` |
+| 5B | Portfolio as an Instagram grid | `/option-5b/` |
+| 5C | Portfolio in a gallery room | `/option-5c/` |
+| 5D | Portfolio on a gallery wall, four at a time | `/option-5d/` |
+| 5E | Portfolio box | `/option-5e/` |
 
 ### Earlier rounds (still online, not linked from the index)
 
