@@ -428,7 +428,17 @@ button,.open{touch-action:manipulation}
 .ext{display:inline-block;width:.7em;height:.7em;margin-left:.4em;vertical-align:0;fill:none;stroke:currentColor;stroke-width:1.15;overflow:visible}
 
 /* Instagram tiles: a hairline border */
-.ig-tile{border:1px solid rgba(21,26,30,.14)}
+.ig-tile,.igp-tile{border:1px solid rgba(21,26,30,.14);background-clip:padding-box}
+
+/* the viewer and pop-up: a close cross at the top right */
+.v-x{position:absolute;z-index:3;top:10px;right:10px;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;background:rgba(255,255,255,.85);color:var(--ink);cursor:pointer}
+.v-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.3}
+.v-x:hover{background:#fff}
+.viewer .v-in{position:relative}
+.pop .v-fig figcaption{padding-right:64px}
+
+/* special projects on small screens: room above the title */
+@media (max-width:900px){.photos{padding-top:48px}}
 
 /* services: Clients as a row like the others */
 .services .svc:last-child{border-bottom:1px solid rgba(21,26,30,.2)}
@@ -567,7 +577,7 @@ button,.open{touch-action:manipulation}
 </form></div></div><div class="foot"><div class="wrap"><span class="logo"><img src="../assets/logo.svg" width="477" height="49" alt="Clarke Projects"></span><span>New York</span><span>© 2026</span></div></div></section>
 </main>
 <div class="loupe" id="loupe" aria-hidden="true"></div>
-<dialog class="viewer" id="viewer" aria-label="Portfolio viewer"><div class="v-in"><figure class="v-fig"><div class="v-pic"><img id="v-img" src="data:," alt=""></div><figcaption><span id="v-a"></span><em id="v-t"></em><small id="v-n"></small></figcaption></figure><div class="v-bar"><span class="v-count" id="v-count"></span><span class="v-nav"><button type="button" id="v-prev" aria-label="Previous work">←</button><button type="button" id="v-next" aria-label="Next work">→</button></span><button type="button" id="v-close">Close</button></div></div></dialog>
+<dialog class="viewer" id="viewer" aria-label="Portfolio viewer"><div class="v-in"><button type="button" class="v-x" id="v-x" aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 2.5l11 11M13.5 2.5l-11 11"/></svg></button><figure class="v-fig"><div class="v-pic"><img id="v-img" src="data:," alt=""></div><figcaption><span id="v-a"></span><em id="v-t"></em><small id="v-n"></small></figcaption></figure><div class="v-bar"><span class="v-count" id="v-count"></span><span class="v-nav"><button type="button" id="v-prev" aria-label="Previous work">←</button><button type="button" id="v-next" aria-label="Next work">→</button></span><button type="button" id="v-close">Close</button></div></div></dialog>
 <script>
 (function(){
 
@@ -663,6 +673,7 @@ button,.open{touch-action:manipulation}
     document.getElementById('v-prev').addEventListener('click',function(){show(vi-1);});
     document.getElementById('v-next').addEventListener('click',function(){show(vi+1);});
     document.getElementById('v-close').addEventListener('click',function(){V.close();});
+    document.getElementById('v-x').addEventListener('click',function(){V.close();});
     V.addEventListener('click',function(ev){if(ev.target===V)V.close();});
     V.addEventListener('keydown',function(ev){if(ev.key==='ArrowLeft')show(vi-1);else if(ev.key==='ArrowRight')show(vi+1);});
   }
