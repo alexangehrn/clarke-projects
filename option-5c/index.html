@@ -304,9 +304,15 @@ body:has(.home.sky) .site-header.hide-logo{background:rgba(217,229,236,.94);bord
 }
 
 /* ================= Round 2, from Benjamin's feedback ================= */
-/* logo: "Clarke Projects" on one line */
-.home.ex .bigmark{white-space:nowrap;font-size:clamp(24px,2.85vw,46px);line-height:1.1}
-@media (max-width:900px){.home.ex .bigmark,.home.leftlogo.ex .bigmark{font-size:clamp(20px,6.6vw,40px)}}
+/* logo: Benjamin's logo file (Cormorant Regular, pointed J), on one line */
+.logo img{display:block;width:100%;height:auto}
+.site-header .logo{width:200px;padding-block:12px}
+.foot .logo{width:140px;align-self:center}
+.home.ex .bigmark{width:min(100%,31vw,470px);font-size:16px;line-height:1}
+@media (max-width:900px){
+  .site-header .logo{width:160px}
+  .home.ex .bigmark,.home.leftlogo.ex .bigmark{width:min(100%,320px);font-size:16px}
+}
 
 /* about: social profiles */
 .about .text .social{display:flex;flex-wrap:wrap;gap:6px 28px;margin:1.5em 0 0;padding-top:16px;border-top:1px solid rgba(21,26,30,.2);font-size:14px;letter-spacing:.03em}
@@ -431,7 +437,7 @@ html:has(.viewer[open]){overflow:hidden}
 <a class="skip" href="#h1">Skip to content</a>
 <header class="site-header" id="site-header">
   <div class="wrap">
-    <a class="logo" id="brand" href="#home">Clarke Projects</a>
+    <a class="logo" id="brand" href="#home"><img src="../assets/logo.svg" width="477" height="49" alt="Clarke Projects"></a>
     <nav class="menu" id="menu" aria-label="Main">
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-list">Menu</button>
       <ul id="menu-list">
@@ -446,7 +452,7 @@ html:has(.viewer[open]){overflow:hidden}
 <nav aria-label="Pages"><ol class="dots" id="dots"></ol></nav>
 <main id="main">
 <section class="page home leftlogo lintro ex" id="home" aria-labelledby="h1">
-  <div class="ex-text"><div class="words"><p class="logo bigmark" id="bigmark" aria-hidden="true">Clarke Projects</p>
+  <div class="ex-text"><div class="words"><p class="logo bigmark" id="bigmark" aria-hidden="true"><img src="../assets/logo.svg" width="477" height="49" alt=""></p>
   <h1 class="h1" id="h1">Art Advisory &amp; Collection Management</h1><p class="kicker city">New York · International</p>
   <p class="intro">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p></div></div>
   <div class="ex-room">
@@ -462,7 +468,7 @@ html:has(.viewer[open]){overflow:hidden}
 <p>Benjamin Clarke has spent more than fourteen years working at the centre of the contemporary art world, with experience across galleries in Los Angeles, London and New York. A graduate of the University of Auckland, where he earned a Bachelor of Arts in Art History, he has worked directly with private collectors at the highest level, managing collections across multiple residences and developing a rigorous understanding of how significant collections are built, focused and grown over time.</p>
 <p>Clarke Projects was founded on the belief that the best collections are built slowly and with conviction, guided by genuine passion rather than market pressure. Benjamin brings a comprehensive understanding of the primary and secondary markets, the gallery and auction systems that establish and sustain artistic value, and the long-term thinking required to build a collection of lasting significance. He has a particular sensitivity to photography and artists who work at the intersection of the photographic and the contemporary, and an instinct for works that feel both intellectually alive and genuinely at home in the spaces they occupy.</p>
 <p>He works closely with each client to understand their tastes, their spaces and their aspirations, finding the territory where a collector's vision and his own eye for quality meet. His approach is rooted in trust, discretion and a long-term commitment to building collections that endure.</p>
-<p class="social"><a href="https://www.linkedin.com/" target="_blank" rel="noopener">View LinkedIn profile<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a></p>
+<p class="social"><a href="https://www.linkedin.com/" target="_blank" rel="noopener">View LinkedIn profile<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a><a href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener">Instagram<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a></p>
   </div>
 </section><section class="page services" id="services" aria-labelledby="services-h"><div class="wrap grid">
   <h2 class="kicker" id="services-h" style="grid-column:1 / -1">Services</h2>
@@ -478,8 +484,8 @@ html:has(.viewer[open]){overflow:hidden}
   <div class="ix-wall" aria-hidden="true"><figure class="ix-view"><img id="ix-img" src="../assets/works/bowers-1600.webp" width="600" height="800" alt=""><figcaption class="ex-label"><span id="ix-a">[First name] Bowers</span><em id="ix-t">[title, year]</em></figcaption></figure></div>
 </section>
 <section class="page insta" id="instagram" aria-labelledby="ig-h"><div class="wrap grid">
-  <div class="ig-text"><h2 class="kicker" id="ig-h">Instagram</h2><p class="ig-lead">Follow on Instagram for more.</p><p class="ig-handle"><a href="https://www.instagram.com/" target="_blank" rel="noopener">@[handle]<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a></p></div>
-  <a class="ig-grid" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Recent posts on Instagram, @[handle] (opens in a new tab)"><span class="ig-tile"><img src="../assets/works/bowers-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/charisse-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/menchelli-four-800.webp" width="675" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/hancock-800.webp" width="593" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/install-8417-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile bw"><img src="../assets/works/process-7198-800.webp" width="800" height="600" loading="lazy" alt=""></span></a>
+  <div class="ig-text"><h2 class="kicker" id="ig-h">Instagram</h2><p class="ig-lead">Follow on Instagram for more.</p><p class="ig-handle"><a href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener">@benjamin.clarke<span aria-hidden="true"> ↗</span><span class="sr"> (opens in a new tab)</span></a></p></div>
+  <a class="ig-grid" href="https://www.instagram.com/benjamin.clarke/" target="_blank" rel="noopener" aria-label="Recent posts on Instagram, @benjamin.clarke (opens in a new tab)"><span class="ig-tile"><img src="../assets/works/bowers-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/charisse-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/menchelli-four-800.webp" width="675" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/hancock-800.webp" width="593" height="800" loading="lazy" alt=""></span><span class="ig-tile"><img src="../assets/works/install-8417-800.webp" width="600" height="800" loading="lazy" alt=""></span><span class="ig-tile bw"><img src="../assets/works/process-7198-800.webp" width="800" height="600" loading="lazy" alt=""></span></a>
 </div></section>
 <section class="page contact form" id="contact" aria-labelledby="contact-h"><div class="body"><div class="wrap grid"><h2 id="contact-h">Let’s Work Together</h2><dl class="details">
   <div><dt>Email</dt><dd>[email]@clarkeprojects.com</dd></div>
@@ -492,7 +498,7 @@ html:has(.viewer[open]){overflow:hidden}
   <div class="field"><label for="j-msg">Message</label><textarea id="j-msg" name="message" required></textarea></div>
   <button class="send" type="submit">Send enquiry</button>
   <p class="status" id="status" role="status" aria-live="polite"></p>
-</form></div></div><div class="foot"><div class="wrap"><span class="logo">Clarke Projects</span><span>New York</span><span>© 2026</span></div></div></section>
+</form></div></div><div class="foot"><div class="wrap"><span class="logo"><img src="../assets/logo.svg" width="477" height="49" alt="Clarke Projects"></span><span>New York</span><span>© 2026</span></div></div></section>
 </main>
 <div class="loupe" id="loupe" aria-hidden="true"></div>
 <dialog class="viewer" id="viewer" aria-label="Portfolio viewer"><div class="v-in"><figure class="v-fig"><div class="v-pic"><img id="v-img" src="data:," alt=""></div><figcaption><span id="v-a"></span><em id="v-t"></em><small id="v-n"></small></figcaption></figure><div class="v-bar"><span class="v-count" id="v-count"></span><span class="v-nav"><button type="button" id="v-prev" aria-label="Previous work">←</button><button type="button" id="v-next" aria-label="Next work">→</button></span><button type="button" id="v-close">Close</button></div></div></dialog>
