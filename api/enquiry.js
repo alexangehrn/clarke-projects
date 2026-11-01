@@ -5,8 +5,28 @@
 //   ENQUIRY_FROM    the sender, e.g. "Clarke Projects <onboarding@resend.dev>" until a domain is verified in Resend
 // The visitor's address is set as Reply-To, so replying in the mail app answers them directly.
 
+const dns = require('dns').promises;
+
 const EMAIL = /^\S+@\S+\.\S+$/;
 const MIN_MS = 3000;
+
+// Can the domain after the @ receive email? Built-in DNS lookup, no outside service.
+// Only a definite "no" counts: a slow or failed lookup lets the enquiry through.
+async function domainReceivesMail(domain) {
+  const lookup = async () => {
+    try {
+      const mx = await dns.resolveMx(domain);
+      if (mx.length) return !(mx.length === 1 && mx[0].exchange === ''); // "null MX": the domain declares it takes no mail
+    } catch (err) {
+      if (err.code === 'ENOTFOUND') return false; // the domain doesn't exist (e.g. a typo)
+      if (err.code !== 'ENODATA') return true;
+    }
+    // No MX record: mail falls back to the domain's own address, if it has one.
+    const found = await Promise.all([dns.resolve4(domain), dns.resolve6(domain)].map((p) => p.then((a) => a.length > 0, () => false)));
+    return found.some(Boolean);
+  };
+  return Promise.race([lookup().catch(() => true), new Promise((resolve) => setTimeout(resolve, 2500, true))]);
+}
 
 const clean = (value, max) => String(value == null ? '' : value).trim().slice(0, max);
 
@@ -36,6 +56,9 @@ module.exports = async (req, res) => {
   const message = clean(body.message, 5000);
   if (!name || !EMAIL.test(email) || !message) {
     return res.status(400).json({ ok: false, error: 'invalid' });
+  }
+  if (!(await domainReceivesMail(email.split('@').pop().toLowerCase()))) {
+    return res.status(400).json({ ok: false, error: 'email-domain' });
   }
 
   const { RESEND_API_KEY, ENQUIRY_TO, ENQUIRY_FROM } = process.env;
