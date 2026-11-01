@@ -629,11 +629,12 @@ button,.open{touch-action:manipulation}
     btn.disabled=true;btn.textContent='Sending…';s.className='status';s.textContent='';
     fetch('/api/enquiry',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:el.name.value,email:el.email.value,message:el.message.value,company:el.company?el.company.value:'',elapsed:Date.now()-formT0})})
-      .then(function(r){return r.json().then(null,function(){return {};}).then(function(j){j.ok=r.ok;return j;});},function(){return {};})
+      .then(function(r){return r.json().then(null,function(){return {};}).then(function(j){j.ok=r.ok;j.status=r.status;return j;});},function(){return {};})
       .then(function(res){btn.disabled=false;btn.textContent='Send enquiry';
         if(res.ok){f.reset();alertMsg('Thank you. Your enquiry has been sent.','success');}
         else if(res.error==='email-domain'){el.email.setAttribute('aria-invalid','true');el.email.focus();
           alertMsg('This email address doesn’t seem to exist. Please check it.');}
+        else if(res.status===429)alertMsg('Too many enquiries have been sent from this connection. Please wait a few minutes and try again, or use the email address shown.');
         else alertMsg('Sorry, your enquiry could not be sent. Please try again, or use the email address shown.');});
   });
   // Messages as alerts (icon + text) under the button; a field turns back to normal once it is corrected.
