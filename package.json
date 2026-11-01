@@ -1,0 +1,11 @@
+{
+  "name": "clarke-projects",
+  "private": true,
+  "description": "Clarke Projects website: static pages plus one serverless function (api/enquiry.js). No build step, no dependencies.",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

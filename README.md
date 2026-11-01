@@ -1,54 +1,40 @@
 # Clarke Projects — design options
 
-Static site, no build step. `/` lists all options; each one lives at its own path.
+Static site, no build step, plus one serverless function for the contact form. Hosted on Vercel: a push to `preview` gives a preview URL, `main` is production.
 
-The index (`/`) lists only the scroll versions 5A–5E (labelled Option 5A–5E). Option 5 and the non-scroll 5A–5E stay online but are not linked.
+`/` lists the five options in review. Each option lives at its own path and will become the home page (`/`) of www.clarkeprojects.com once one is chosen (see `docs/launch-readiness.md`).
 
-5A–5E share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio. Each "scroll" version is identical on desktop; on phones it moves one full page per scroll step, with page dots (eight pages).
+5A–5E share one home page (the Siskind first, then the other works in the same frame and label, 6 s each), About, Services, Special Projects, Instagram and Contact. They differ only in the Portfolio. On phones each moves one full page per scroll step, with page dots (eight pages).
 
-| Option | Name | Path |
+| Option | Portfolio | Path |
 |---|---|---|
-| 5 | Gallery style, Blocks (unchanged) | `/option-5/` |
-| 5A | Portfolio index, museum style | `/option-5a/` |
-| 5A scroll | Portfolio index, museum style, page-by-page on phones | `/option-5a-scroll/` |
-| 5B | Portfolio as an Instagram grid | `/option-5b/` |
-| 5B scroll | Portfolio as an Instagram grid, page-by-page on phones | `/option-5b-scroll/` |
-| 5C | Portfolio in a gallery room | `/option-5c/` |
-| 5C scroll | Portfolio in a gallery room, page-by-page on phones | `/option-5c-scroll/` |
-| 5D | Portfolio on a gallery wall, four at a time | `/option-5d/` |
-| 5D scroll | Portfolio on a gallery wall, four at a time, page-by-page on phones | `/option-5d-scroll/` |
-| 5E | Portfolio box | `/option-5e/` |
-| 5E scroll | Portfolio box, page-by-page on phones | `/option-5e-scroll/` |
+| 5A | Index, museum style | `/option-5a-scroll/` |
+| 5B | Instagram-style grid | `/option-5b-scroll/` |
+| 5C | Gallery room | `/option-5c-scroll/` |
+| 5D | Gallery wall, four at a time | `/option-5d-scroll/` |
+| 5E | Box of prints | `/option-5e-scroll/` |
 
-### Earlier rounds (still online, not linked from the index)
+Shared pages: `/privacy/`, `/accessibility/`, and `404.html` for unknown addresses.
 
-| Option | Name | Path |
-|---|---|---|
-| 1 | Gallery style | `/option-1/` |
-| 2 | Art selection style, Left aligned | `/option-2/` |
-| 3A | Art selection style, Center aligned, Legend on sides | `/option-3a/` |
-| 3B | Art selection style, Center aligned, Legend on bottom banner | `/option-3b/` |
-| 4A | Art Background, Blue | `/option-4a/` |
-| 4B | Art Background, Grey | `/option-4b/` |
-| 6 | Different pages navigation: `/option-6/`, `/option-6/about/`, `/option-6/services/`, `/option-6/contact/` | `/option-6/` |
+Earlier options and animation studies are in `archive/` (kept in the repository, not deployed).
 
-Images and fonts are shared from `/assets/`. Web-sized artwork and process images for the round 2 options are in `/assets/works/` (WebP, 800 and 1600 px).
+## Files
+
+| Path | What |
+|---|---|
+| `option-5?-scroll/index.html` | The five options (each self-contained: inline CSS, fonts and JS) |
+| `api/enquiry.js` | Contact form → email via Resend (settings in Vercel environment variables, see the file header) |
+| `tests/` | Contact form tests: `npm test` (Node's built-in runner, no dependencies) |
+| `assets/` | Shared images, logo, fonts (`fonts.css`), `page.css` for the short text pages; artwork images in `assets/works/` (WebP, 800 and 1600 px) |
+| `vercel.json` | Clean URLs, security headers, `noindex` on every host except www.clarkeprojects.com, caching |
+| `robots.txt`, `sitemap.xml` | Written for the live domain |
+| `.vercelignore` | Keeps `archive/`, `tests/`, `docs/` and this README out of deployments |
+| `docs/` | Internal notes (not deployed) |
 
 ## Preview locally
 
 ```sh
-npx serve .
+npx serve .        # pages only; the contact form needs the function:
+vercel dev         # pages + /api/enquiry/ (after `vercel link` and `vercel env pull .env.local`)
+npm test           # contact form tests
 ```
-
-## Add an option
-
-Create `option-x/index.html` (images as `../assets/…`) and add a line to `index.html`.
-
-## Animation studies (explorations, not design proposals; not linked from the index)
-
-| Study | Name | Path |
-|---|---|---|
-| 7A | Entering the gallery, corridor: one entrance walk, then Option 1 as a normal page | `/option-7a/` |
-| 7B | Entering the gallery, along the wall: one entrance glide, then Option 1 as a normal page | `/option-7b/` |
-| 8A | Gallery walk, corridor loop: arrows move one room clockwise | `/option-8a/` |
-| 8B | Gallery walk, rotunda: arrows turn clockwise, plan to jump | `/option-8b/` |

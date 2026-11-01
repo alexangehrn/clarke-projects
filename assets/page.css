@@ -1,0 +1,24 @@
+/* Shared style for the short text pages (privacy, accessibility, not found). Same palette and type as the options. */
+:root{--paper:#D9E5EC;--paper-2:#E7EEF2;--ink:#151A1E;--graphite:#3F4B54;--line:rgba(21,26,30,.2)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper-2);color:var(--ink);font:300 17px/1.65 'Jost','Futura','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:var(--paper);padding:10px 14px;z-index:60;text-decoration:none}
+.skip:focus{top:12px}
+.top{background:var(--paper);border-bottom:1px solid var(--line)}
+.top .in,.doc,.bottom .in{max-width:760px;margin:0 auto;padding-inline:16px}
+.top .in{display:flex;align-items:center;min-height:68px}
+.top a{display:inline-block;padding-block:8px}
+.top img{display:block;width:min(220px,60vw);height:auto}
+.doc{padding-block:56px 72px}
+h1{font-weight:400;font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 8px}
+.meta{margin:0 0 40px;font-size:14px;color:var(--graphite)}
+h2{font-weight:500;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--graphite);margin:44px 0 10px}
+p,li{max-width:66ch}
+ul{padding-left:1.2em}
+li{margin-bottom:6px}
+.bottom{border-top:1px solid var(--line);font-size:14px;color:var(--graphite)}
+.bottom .in{display:flex;flex-wrap:wrap;gap:8px 20px;padding-block:18px 24px}
+.bottom a{display:inline-block;padding-block:3px}

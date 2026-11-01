@@ -1,0 +1,9 @@
+# Clarke Projects
+# Search engines and AI search/assistant crawlers are welcome.
+# AI model training: no preference set yet. To opt out of training only (search stays unaffected),
+# add groups for GPTBot, ClaudeBot, Google-Extended and Applebot-Extended with "Disallow: /".
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://www.clarkeprojects.com/sitemap.xml
