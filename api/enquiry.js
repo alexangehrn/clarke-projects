@@ -6,6 +6,7 @@
 // The visitor's address is set as Reply-To, so replying in the mail app answers them directly.
 
 const EMAIL = /^\S+@\S+\.\S+$/;
+const MIN_MS = 3000;
 
 const clean = (value, max) => String(value == null ? '' : value).trim().slice(0, max);
 
@@ -24,6 +25,11 @@ module.exports = async (req, res) => {
 
   // Honeypot: people never see or fill the "company" field; bots usually do. Pretend it worked.
   if (clean(body.company, 200)) return res.status(200).json({ ok: true });
+
+  // Time check: the page sends how long it was open (ms). No one completes the form in under 3 seconds;
+  // bots do, or post here directly without the page. Pretend it worked here too.
+  const elapsed = Number(body.elapsed);
+  if (!(elapsed >= MIN_MS)) return res.status(200).json({ ok: true });
 
   const name = clean(body.name, 200).replace(/[\r\n]+/g, ' ');
   const email = clean(body.email, 320);

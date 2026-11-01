@@ -665,6 +665,7 @@ button,.open{touch-action:manipulation}
     requestAnimationFrame(function(){requestAnimationFrame(function(){p.style.strokeDashoffset='0';});});});
 
   var f=document.getElementById('enquiry'), s=document.getElementById('status');
+  var formT0=Date.now(); // sent as 'elapsed': bots submit within moments of loading the page
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var missing=[].filter.call(f.querySelectorAll('[required]'),function(el){
@@ -679,7 +680,7 @@ button,.open{touch-action:manipulation}
     var btn=f.querySelector('.send'),el=f.elements;
     btn.disabled=true;btn.textContent='Sending…';s.className='status';s.textContent='';
     fetch('/api/enquiry',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name:el.name.value,email:el.email.value,message:el.message.value,company:el.company?el.company.value:''})})
+      body:JSON.stringify({name:el.name.value,email:el.email.value,message:el.message.value,company:el.company?el.company.value:'',elapsed:Date.now()-formT0})})
       .then(function(r){return r.ok;},function(){return false;})
       .then(function(ok){btn.disabled=false;btn.textContent='Send enquiry';
         if(ok){f.reset();alertMsg('Thank you. Your enquiry has been sent.','success');}
