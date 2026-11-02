@@ -10,4 +10,5 @@ node_modules/
 /assets/*.HEIC
 /assets/*.heic
 /assets/*.ai
+/archive/assets/originals/
 /archive/assets/originals-unused/

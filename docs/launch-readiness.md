@@ -70,7 +70,7 @@ Operational duties (not code): decide a mailbox retention period and delete old 
 
 ## 5. Images (done 2 Nov 2026)
 
-Built by Claude with sharp (libvips) from the originals in `assets/` (untracked, now git-ignored); the old image set moved to `archive/assets/` for the archived options. Rules kept: Siskind untouched (only renamed); Special Projects greyscale; metadata stripped; sRGB; never larger than the source.
+Built by Claude with sharp (libvips) from the originals, now in `archive/assets/originals/` (git-ignored); the old image set moved to `archive/assets/` for the archived options. Rules kept: Siskind untouched (only renamed); Special Projects greyscale; metadata stripped; sRGB; never larger than the source.
 
 **Convention:** `<subject>-<actual width>.webp`, so every `srcset` width matches its file. A changed image gets a new name (images are cached for a year as immutable).
 

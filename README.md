@@ -25,7 +25,7 @@ Earlier options and animation studies are in `archive/` (kept in the repository,
 | `option-5?-scroll/index.html` | The five options (each self-contained: inline CSS, fonts and JS) |
 | `api/enquiry.js` | Contact form → email via Resend (settings in Vercel environment variables, see the file header) |
 | `tests/` | Contact form tests: `npm test` (Node's built-in runner, no dependencies) |
-| `assets/` | `fonts.css`, `page.css` (short text pages) and the images: `works/` (artworks, several widths), `special/`, `portrait/`, `instagram/`, `brand/` (logo, link-preview image). Names are `<subject>-<width>.webp`; images are cached for a year, so a changed image needs a new name. Originals stay untracked in `assets/` (git-ignored) |
+| `assets/` | `fonts.css`, `page.css` (short text pages) and the images: `works/` (artworks, several widths), `special/`, `portrait/`, `instagram/`, `brand/` (logo, link-preview image). Names are `<subject>-<width>.webp`; images are cached for a year, so a changed image needs a new name. Originals (full-size sources) are in `archive/assets/originals/` (git-ignored, never deployed) |
 | `favicon.ico`, `favicon-192.png`, `apple-touch-icon.png` | Browser and home-screen icons (the Siskind, scaled down) |
 | `vercel.json` | Clean URLs, security headers, `noindex` on every host except www.clarkeprojects.com, caching |
 | `robots.txt`, `sitemap.xml` | Written for the live domain |
