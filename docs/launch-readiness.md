@@ -95,7 +95,7 @@ Captions supplied by Alexandra on 2 Nov 2026 and now used in all five options (h
 |---|---|---|---|---|
 | `works/siskind-937` (home only) | Aaron Siskind | Pleasures and Terrors of Levitation 37, 1953 | | Review |
 | `works/mccaw` | Chris McCaw | Sunburned GSP #1103 (Salton Sea), 2024 | | Review |
-| `works/menchelli` | Fabiola Menchelli | Nautical, from the Paralelogramas series | | Review; year missing |
+| `works/menchelli` | Fabiola Menchelli | Nautical, from the Parallelograms series | | Review; year missing |
 | `works/nguyen` | Tuấn Andrew Nguyễn | Air Drop Anomaly, 2023 | Photo: Dan Bradica Studio. | Review |
 | `works/tillmans` | Wolfgang Tillmans | Elternbesuch, 2022 | | Review |
 | `works/mutu` | Wangechi Mutu | Water Woman, 2017 | | Review |
@@ -111,7 +111,7 @@ Captions supplied by Alexandra on 2 Nov 2026 and now used in all five options (h
 | `works/wolfgang-700` | Wolfgang Tillmans | John Donne / Agave, Berlin Collage, 2020 | | Review |
 | `instagram/process-7198` | Joiri Minaya | Emergence I, from the Divergences series, 2020 | | Review (not shown on the site: Instagram tile) |
 | `instagram/install-8417` | Alyson Shotz | Wavelength #2 | Installation view. | **Missing: title and year to confirm with Ben** (not shown on the site: Instagram tile) |
-| `instagram/hancock` | Trenton Doyle Hancock | Properties of the Hammer, 1993 | Installation view, The Jewish Museum, New York. | Review (not shown on the site: Instagram tile) |
+| `instagram/hancock` | Trenton Doyle Hancock | The Boys in the Hoods are Always Hard, 2023 | Installation view, Draw Them In, Paint Them Out: Trenton Doyle Hancock Confronts Philip Guston, The Jewish Museum, New York | Review (not shown on the site: Instagram tile) |
 
 The three Instagram tiles carry no caption on the site (the grid is one link to Instagram); their captions are recorded here for the zip of artwork images and for Instagram.
 
