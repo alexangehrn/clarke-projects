@@ -14,7 +14,7 @@ Static site, no build step, plus one serverless function for the contact form. H
 | 5D | Gallery wall, four at a time | `/option-5d-scroll/` |
 | 5E | Box of prints | `/option-5e-scroll/` |
 | 5F | Gallery room as 5C, all works on the one wall in front | `/option-5f-scroll/` |
-| 5G | Box of prints as 5E; on large screens "See Gallery" opens a wall of all works below (hover shows a work in the box) | `/option-5g-scroll/` |
+| 5G | Box of prints as 5E; on large screens "See Gallery" opens a wall of all works under the introduction, rows fitted to the space (hover shows a work in the box) | `/option-5g-scroll/` |
 
 Shared pages: `/privacy/`, `/accessibility/`, and `404.html` for unknown addresses.
 
