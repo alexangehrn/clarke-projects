@@ -516,9 +516,10 @@ button,.open{touch-action:manipulation}
    screens they may still run past one screen, and then scroll within the page. */
 @media (max-width:900px){
   html.msnap{scroll-snap-type:y mandatory}
-  /* Contact is the last page: it follows the visible height (dvh changes as Safari's toolbar shows
-     and hides), so it always fills the screen under the menu with the footer at the bottom */
-  .contact.mpage{min-height:calc(100dvh - var(--hh))}
+  /* Contact is the last page: it is as tall as the screen with Safari's toolbar hidden (lvh), which is
+     how the screen looks after scrolling down, so it fills it with the footer at the bottom and nothing
+     resizes or re-snaps when the toolbar goes (dvh did, and that showed as a lag) */
+  .contact.mpage{min-height:calc(100lvh - var(--hh))}
   .mpage{--ph:calc(100svh - var(--hh));scroll-snap-align:start;scroll-snap-stop:always;min-height:var(--ph);display:flex;flex-direction:column;justify-content:center}
   .dots{display:flex;right:2px}
 
