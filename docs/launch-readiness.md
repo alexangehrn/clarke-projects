@@ -9,10 +9,10 @@ Status keys: **Done** = implemented and verified · **Prod check** = implemented
 | # | Blocker | Action | Status |
 |---|---|---|---|
 | B1 | Client has not chosen an option | Ben picks one; then follow §7 "Go live" | Owner |
-| B2 | Visible placeholders | Supply: contact email, phone, portrait photo credit, artwork captions (`[title, year]`, `[First name]`, `[surname]`, `[Artist]`), Special Projects captions (`[city, year]`), LinkedIn URL (link currently goes to linkedin.com). Confirm the inferred first names (Mutu, Struth, Sugimoto) | Owner |
+| B2 | Visible placeholders | Supply: contact email, phone, portrait photo credit, Special Projects captions (`[city, year]`), LinkedIn URL (link currently goes to linkedin.com). **Artwork captions: Ben reviews every caption in §5a and supplies the missing ones** (Charisse Pearlina Weston title and year; Alyson Shotz title and year) | Owner |
 | B3 | Privacy policy | Owner text in place (1 Nov 2026: sole proprietor, benjamin@clarkeprojects.com, 24-month enquiry retention). Still to do: set the effective date at publication; switch `ENQUIRY_TO` to Ben (the policy says only Benjamin has mailbox access; test enquiries currently go to Alexandra’s Gmail, delete them after testing); keep Vercel Firewall challenge/Bot Protection off unless the policy is updated (a challenge sets a cookie) | Owner |
 | B4 | Accessibility page details | Fill in `[email]`, `[phone]`, review date in `/accessibility/` | Owner |
-| B5 | Image licences and permissions | Written permission for: the Siskind (licence pending; may not be scaled or animated without the licensor's OK; this now includes its use, scaled down, as the site's favicon and home-screen icon), every artwork image in Portfolio and on the home carousel (artist/estate/gallery or photographer, e.g. "Photograph: Dan Bradica" on Nguyen), installation photos (sites, people shown: art handlers, LaToya hang), and the portrait photographer. The draft Portfolio sentence ("…works placed in private collections are not reproduced here…") still awaits Ben's approval | Owner / Review |
+| B5 | Image licences and permissions | Written permission for: the Siskind (licence pending; may not be scaled or animated without the licensor's OK; this now includes its use, scaled down, as the site's favicon and home-screen icon), every artwork image in Portfolio and on the home carousel (artist/estate/gallery or photographer, e.g. "Photo: Dan Bradica Studio." on Nguyễn; quote permission noted in the Bowers title), installation photos (sites, people shown: art handlers, LaToya hang), and the portrait photographer. The draft Portfolio sentence ("…works placed in private collections are not reproduced here…") still awaits Ben's approval | Owner / Review |
 | B6 | Images | Done 2 Nov 2026 (§5). Still open: a larger Deana Lawson image from Ben (only 544×776 exists) | Owner (Lawson) |
 | B7 | Email sender domain | Verify clarkeprojects.com in Resend (DNS at Squarespace, needs Ben's login), set `ENQUIRY_FROM` to an @clarkeprojects.com address and `ENQUIRY_TO` to Ben; add SPF/DKIM (Resend's records) and a DMARC record. The domain has **no SPF and no DMARC today** (checked by DNS lookup); Google Workspace mail benefits from both too | Owner |
 
@@ -83,9 +83,37 @@ Built by Claude with sharp (libvips) from the originals, now in `archive/assets/
 | `assets/brand/` | `logo.svg` (minified 29→11 KB, pixel-identical), `logo-512.png`, `og-image.png` (1200×630) | Link preview: logo, “Art Advisory & Collection Management”, “New York · International” on #D9E5EC |
 | site root | `favicon.ico` (16/32/48), `favicon-192.png`, `apple-touch-icon.png` (180) | The Siskind, whole square image scaled down (no crop/tint/overlay), 2 Nov 2026 at Alexandra's request. Scaling needs the licensor's OK (B5); fallback: the CP monogram from the logo glyphs (git history, commit 64bb22a) |
 
-Portfolio additions (2 Nov 2026): `works/process-7872-636/-955/-1273` (from IMG_7872.heic) and `works/wolfgang-700` (wolfgang.JPG is only 700×700). Captions stay placeholders (B2): "[Artist]" and "Wolfgang [surname]". Unused originals moved to `archive/assets/originals-unused/` (git-ignored).
+Portfolio additions (2 Nov 2026): `works/process-7872-636/-955/-1273` (from IMG_7872.heic) and `works/wolfgang-700` (wolfgang.JPG is only 700×700). Captions: see §5a. Unused originals moved to `archive/assets/originals-unused/` (git-ignored).
 
 Page weight after scrolling the whole page (local, Chrome): about 2.4 MB on a 390 px 3× phone and 2.1 MB at 1440 px 2× (was 5.6 MB at first load). Open: a larger Lawson image (then add `-600/-900/-1200`).
+
+## 5a. Artwork captions (updated 2 Nov 2026, Ben to review)
+
+Captions supplied by Alexandra on 2 Nov 2026 and now used in all five options (home carousel, Portfolio list/wall/room/box, pop-ups and accessible names). **Ben must review every line** (spelling, diacritics, title, year, credit) and supply what is missing. Notes show only in the Portfolio pop-ups (5A, 5B, 5D, 5E), not on the walls, the 5C room or the home carousel. Long titles end in an ellipsis in the 5A list, the print box and on the 5C/5D walls; the full text is in the label beside the work or in the pop-up.
+
+| Image | Artist | Title, year | Note | Status |
+|---|---|---|---|---|
+| `works/siskind-937` (home only) | Aaron Siskind | Pleasures and Terrors of Levitation 37, 1953 | | Review |
+| `works/mccaw` | Chris McCaw | Sunburned GSP #1103 (Salton Sea), 2024 | | Review |
+| `works/menchelli` | Fabiola Menchelli | Nautical, from the Paralelogramas series | | Review; year missing |
+| `works/nguyen` | Tuấn Andrew Nguyễn | Air Drop Anomaly, 2023 | Photo: Dan Bradica Studio. | Review |
+| `works/tillmans` | Wolfgang Tillmans | Elternbesuch, 2022 | | Review |
+| `works/mutu` | Wangechi Mutu | Water Woman, 2017 | | Review |
+| `works/sugimoto` | Hiroshi Sugimoto | Wolf Building Rooftop, New York, 2015 | | Review |
+| `works/struth` | Thomas Struth | Paradise 24, São Francisco de Xavier, Brazil, 2001 | | Review |
+| `works/giorno` | John Giorno | Dial-A-Poem, 1968/2012 | Installation view. | Review |
+| `works/menchelli-four` | Fabiola Menchelli | Solar, Eros, Eclipse, and Acitti, 2024 | Clockwise from upper left: Solar, Eros, Acitti, Eclipse. | Review |
+| `works/lawson-544` | Deana Lawson | Approaching Ivanpah, 2023 | | Review |
+| `works/bowers` | Andrea Bowers | Chandeliers of Interconnectedness (When Women Were Birds; quote used by permission of Terry Tempest Williams), 2022 | | Review |
+| `works/rg-miriam` | Rico Gatson | Miriam, 2024 | | Review |
+| `works/charisse` | Charisse Pearlina Weston | `[title, year]` (visible placeholder) | | **Missing: title and year from Ben** |
+| `works/process-7872` | PaJaMa | Chuck Howard and Ted Starkowski, 1953 | | Review |
+| `works/wolfgang-700` | Wolfgang Tillmans | John Donne / Agave, Berlin Collage, 2020 | | Review |
+| `instagram/process-7198` | Joiri Minaya | Emergence I, from the Divergences series, 2020 | | Review (not shown on the site: Instagram tile) |
+| `instagram/install-8417` | Alyson Shotz | Wavelength #2 | Installation view. | **Missing: title and year to confirm with Ben** (not shown on the site: Instagram tile) |
+| `instagram/hancock` | Trenton Doyle Hancock | Properties of the Hammer, 1993 | Installation view, The Jewish Museum, New York. | Review (not shown on the site: Instagram tile) |
+
+The three Instagram tiles carry no caption on the site (the grid is one link to Instagram); their captions are recorded here for the zip of artwork images and for Instagram.
 
 ## 6. Test evidence (1 Nov 2026, local)
 
