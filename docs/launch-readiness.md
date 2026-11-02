@@ -70,14 +70,14 @@ Operational duties (not code): decide a mailbox retention period and delete old 
 
 ## 5. Images (done 2 Nov 2026)
 
-Built by Claude with sharp (libvips) from the originals in `assets/` (untracked, now git-ignored); the old image set moved to `archive/assets/` for the archived options. Rules kept: Siskind untouched (only renamed); Special Projects greyscale; no artwork visible in the LaToya crop; metadata stripped; sRGB; never larger than the source.
+Built by Claude with sharp (libvips) from the originals in `assets/` (untracked, now git-ignored); the old image set moved to `archive/assets/` for the archived options. Rules kept: Siskind untouched (only renamed); Special Projects greyscale; metadata stripped; sRGB; never larger than the source.
 
 **Convention:** `<subject>-<actual width>.webp`, so every `srcset` width matches its file. A changed image gets a new name (images are cached for a year as immutable).
 
 | Folder | Files | Notes |
 |---|---|---|
 | `assets/works/` | `siskind-937.jpg`; bowers, charisse, giorno, mutu, nguyen `-600/-900/-1200`; menchelli `-640/-960/-1280`; menchelli-four `-675/-961`; mccaw `-773/-1199`; struth `-800/-1200/-1396`; sugimoto `-800/-1200/-1500`; tillmans and rg-miriam `-800/-1200/-1600`; `lawson-544` | Middle sizes new (q76); Struth re-encoded q70. Pages offer every size via `srcset`; the carousel, 5C room (zoomed), 5D wall and the print box choose by screen |
-| `assets/special/` | `special-4656-1000`, `special-4657-1000`, `special-latoya-756` | Square (the frames are square), greyscale; LaToya cropped from the original to ladder, desk edge and floor (x 877–1633, y 2512–3268 of the upright 3024×4032), so the CSS crop is gone |
+| `assets/special/` | `special-4656-1000`, `special-4657-1000`, `special-latoya-1200` | Greyscale. 4656/4657 square (the frames are square). LaToya is the full photograph (1200×1600, owner's choice 2 Nov 2026: shows the hung works); the square frame shows its centre |
 | `assets/portrait/` | `benjamin-clarke-800/-1200/-1600/-2400` | q78; `sizes` follows the page height (the photo covers its half / page) |
 | `assets/instagram/` | `hancock-480`, `install-8417-480`, `process-7198-480` | Square centre crops as shown before; the other three tiles reuse artwork files |
 | `assets/brand/` | `logo.svg` (minified 29→11 KB, pixel-identical), `logo-512.png`, `og-image.png` (1200×630) | Link preview: logo, “Art Advisory & Collection Management”, “New York · International” on #D9E5EC |
