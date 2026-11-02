@@ -1,6 +1,6 @@
 # Clarke Projects: launch readiness review
 
-Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5e-scroll`, the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
+Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5f-scroll` (5F added 2 Nov 2026: a copy of 5C with all works on one wall), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
 
 Status keys: **Done** = implemented and verified · **Prod check** = implemented, verify on the live domain · **Owner** = requires owner information · **Review** = requires external/legal review · **N/A** = not applicable.
 
@@ -89,7 +89,7 @@ Page weight after scrolling the whole page (local, Chrome): about 2.4 MB on a 39
 
 ## 5a. Artwork captions (updated 2 Nov 2026, Ben to review)
 
-Captions supplied by Alexandra on 2 Nov 2026 and now used in all five options (home carousel, Portfolio list/wall/room/box, pop-ups and accessible names). **Ben must review every line** (spelling, diacritics, title, year, credit) and supply what is missing. Notes show only in the Portfolio pop-ups (5A, 5B, 5D, 5E), not on the walls, the 5C room or the home carousel. Long titles end in an ellipsis in the 5A list, the print box and on the 5C/5D walls; the full text is in the label beside the work or in the pop-up.
+Captions supplied by Alexandra on 2 Nov 2026 and now used in all options (home carousel, Portfolio list/wall/room/box, pop-ups and accessible names). **Ben must review every line** (spelling, diacritics, title, year, credit) and supply what is missing. Notes show only in the Portfolio pop-ups (5A, 5B, 5D, 5E), not on the walls, the 5C room or the home carousel. Long titles end in an ellipsis in the 5A list, the print box and on the 5C/5D walls; the full text is in the label beside the work or in the pop-up.
 
 | Image | Artist | Title, year | Note | Status |
 |---|---|---|---|---|
@@ -154,5 +154,5 @@ Not tested / still to do: a screen reader pass (VoiceOver on macOS and iOS: menu
 
 ## 8. Recommendation
 
-**Engineering: ready with non-blocking follow-ups** for the five options as a review site, and for launch once the image changes (§5) are made.
+**Engineering: ready with non-blocking follow-ups** for the options as a review site, and for launch once the image changes (§5) are made.
 **Launch overall: NOT READY**, because of the owner and legal items B1–B7 (choice of option, placeholders, privacy details, image rights, email domain). Each has a single owner action listed above.
