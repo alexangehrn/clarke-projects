@@ -513,9 +513,9 @@ button,.open{touch-action:manipulation}
    screens they may still run past one screen, and then scroll within the page. */
 @media (max-width:900px){
   html.msnap{scroll-snap-type:y mandatory}
-  /* Contact is the last page: when Safari's toolbar collapses the screen grows from svh to lvh,
-     so add that difference below it, or the page can't scroll far enough to align Contact's top */
-  .contact.mpage{min-height:calc(100lvh - var(--hh));padding-bottom:calc(100lvh - 100svh)}
+  /* Contact is the last page: it follows the visible height (dvh changes as Safari's toolbar shows
+     and hides), so it always fills the screen under the menu with the footer at the bottom */
+  .contact.mpage{min-height:calc(100dvh - var(--hh))}
   .mpage{--ph:calc(100svh - var(--hh));scroll-snap-align:start;scroll-snap-stop:always;min-height:var(--ph);display:flex;flex-direction:column;justify-content:center}
   .dots{display:flex;right:2px}
 
