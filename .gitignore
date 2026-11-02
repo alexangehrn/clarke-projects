@@ -3,3 +3,10 @@ __MACOSX/
 .vercel
 node_modules/
 .env*.local
+# Original images (kept locally, never committed; the web versions live in assets/ subfolders)
+/assets/*.jpg
+/assets/*.jpeg
+/assets/*.JPG
+/assets/*.HEIC
+/assets/*.heic
+/assets/*.ai

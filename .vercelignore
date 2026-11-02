@@ -4,3 +4,10 @@ tests/
 docs/
 README.md
 CLAUDE.md
+# Original images (also git-ignored)
+/assets/*.jpg
+/assets/*.jpeg
+/assets/*.JPG
+/assets/*.HEIC
+/assets/*.heic
+/assets/*.ai

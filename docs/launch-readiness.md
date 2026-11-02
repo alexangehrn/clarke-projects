@@ -13,7 +13,7 @@ Status keys: **Done** = implemented and verified · **Prod check** = implemented
 | B3 | Privacy policy | Owner text in place (1 Nov 2026: sole proprietor, benjamin@clarkeprojects.com, 24-month enquiry retention). Still to do: set the effective date at publication; switch `ENQUIRY_TO` to Ben (the policy says only Benjamin has mailbox access; test enquiries currently go to Alexandra’s Gmail, delete them after testing); keep Vercel Firewall challenge/Bot Protection off unless the policy is updated (a challenge sets a cookie) | Owner |
 | B4 | Accessibility page details | Fill in `[email]`, `[phone]`, review date in `/accessibility/` | Owner |
 | B5 | Image licences and permissions | Written permission for: the Siskind (licence pending; may not be scaled or animated without the licensor's OK), every artwork image in Portfolio and on the home carousel (artist/estate/gallery or photographer, e.g. "Photograph: Dan Bradica" on Nguyen), installation photos (sites, people shown: art handlers, LaToya hang), and the portrait photographer. The draft Portfolio sentence ("…works placed in private collections are not reproduced here…") still awaits Ben's approval | Owner / Review |
-| B6 | Image changes listed in §5 | At minimum: Install+LaToya file (shows the hung works in full; only CSS hides them) and the 5.2 MB portrait | Owner (Alexandra, manual) |
+| B6 | Images | Done 2 Nov 2026 (§5). Still open: a larger Deana Lawson image from Ben (only 544×776 exists) | Owner (Lawson) |
 | B7 | Email sender domain | Verify clarkeprojects.com in Resend (DNS at Squarespace, needs Ben's login), set `ENQUIRY_FROM` to an @clarkeprojects.com address and `ENQUIRY_TO` to Ben; add SPF/DKIM (Resend's records) and a DMARC record. The domain has **no SPF and no DMARC today** (checked by DNS lookup); Google Workspace mail benefits from both too | Owner |
 
 ## 2. What changed in this review and why
@@ -23,7 +23,7 @@ Status keys: **Done** = implemented and verified · **Prod check** = implemented
 | Scope | Unlinked options and studies moved to `archive/` (asset paths adjusted so they still open locally) and excluded from deployments | Done |
 | Security headers | `vercel.json`: Content-Security-Policy (self only; no third-party origins needed), `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`/`frame-ancestors`, `Permissions-Policy`. HSTS is left to Vercel's default (custom domains get `max-age=63072000`; no `includeSubDomains`/preload added) | Done locally (CSP enforced in browser tests); Prod check |
 | Indexing | `X-Robots-Tag: noindex` on every host except www.clarkeprojects.com, so the vercel.app review site is not indexed while the live domain is, with no change needed at launch. `robots.txt` (all crawlers allowed, `/api/` disallowed, sitemap) and `sitemap.xml` written for the live domain | Done; Prod check |
-| SEO | Canonical `https://www.clarkeprojects.com/` on each option; Open Graph/Twitter title and description; JSON-LD `Organization` + `Person` + `WebSite` using only visible facts (name, intro sentence, New York, University of Auckland, Instagram). No LocalBusiness (no street address); no logo in JSON-LD (the wordmark is 477×49, Google wants ≥112×112) | Done |
+| SEO | Canonical `https://www.clarkeprojects.com/` on each option; Open Graph/Twitter title, description and 1200×630 preview image; JSON-LD `Organization` (with `logo-512.png`) + `Person` (with portrait) + `WebSite` using only visible facts (name, intro sentence, New York, University of Auckland, Instagram). No LocalBusiness (no street address). Favicons: `/favicon.ico`, `/favicon.svg`, `/apple-touch-icon.png` (CP monogram from the logo's own letters) | Done |
 | Fonts | Removed the unused inline Cormorant face (29 KB per page; the logo is an SVG) | Done |
 | LCP | `fetchpriority="high"` on the Siskind (the LCP element) | Done |
 | Contact form (page) | Privacy line + link in the form hint; `maxlength`; honeypot renamed so browser autofill won't fill it (it was labelled "Company", which autofill can fill, silently dropping a real enquiry); invalid fields point to the alert (`aria-describedby`); "too fast" now shows a retry message instead of being silently dropped; idempotency key per enquiry so a retry after a timeout can't send twice; posts to `/api/enquiry/` directly (avoids a 308 redirect) | Done |
@@ -36,21 +36,17 @@ Status keys: **Done** = implemented and verified · **Prod check** = implemented
 ## 3. Remaining findings by severity
 
 **High**
-- B5/B6 above (image rights; LaToya file exposes the hung works).
+- B5 above (image rights).
 - Vercel plan: the Hobby plan's terms limit it to non-commercial personal use and Vercel's DPA covers Pro/Enterprise only. Owner position (1 Nov 2026): the site is a non-commercial presentation site. Revisit if that changes.
 
 **Medium**
-- Portrait is 5.2 MB (≈90% of page weight; §5).
 - Rate limit: the Vercel Firewall rule must match **starts with `/api/enquiry`** (the form now posts to `/api/enquiry/`; a rule on "equals /api/enquiry" no longer matches and could always be bypassed). Hobby: one rate-limit rule, fixed window 10 s–10 min, keyed by IP. Suggested: 5 requests / 10 min / IP, action 429. There is no global cap besides Resend's free quota (100 emails/day, 3,000/month), which then fails safely with the error alert.
-- No favicon (a `data:` placeholder stops the 404). Search results show a generic icon until one exists (§5).
-- Social preview image not yet published (`og:image` tags removed until the file exists; §5).
 - Services wording to confirm with Ben (approved copy unchanged): "insurance appraisals" (does Clarke Projects perform appraisals, or arrange them with qualified appraisers?) and "estate planning" (collection side only, not legal/tax advice). If he doesn't perform appraisals himself, a small wording change avoids implying a qualification.
 
 **Low**
 - CSP needs `'unsafe-inline'` because scripts and styles are inline in each page. Acceptable here (no user content is ever rendered as HTML; the form uses `textContent`). Moving scripts to files would allow a stricter policy.
 - 5C wall labels are 9.5 px in perspective; the same artist/title is in each work's accessible name and the 13.5 px caption.
 - Honeypot and timing are secondary controls; a targeted bot can pass them. Escalation path if spam appears: Vercel Firewall rule tightening, then Vercel Bot Protection (challenge) or an invisible challenge. Not needed now.
-- `logo.svg` is 29 KB (could be optimised with an SVG minifier).
 
 ## 4. Legal and privacy applicability (US-facing presentation site, contact form only)
 
@@ -72,27 +68,22 @@ Data flow: browser → HTTPS → Vercel function (US; request logs: IP, user age
 
 Operational duties (not code): decide a mailbox retention period and delete old enquiries; answer access/deletion requests by email; 2FA on Vercel, Resend, Google and Squarespace; Resend's DPA is part of its terms; Vercel's DPA requires Pro.
 
-## 5. Image changes for Alexandra (manual)
+## 5. Images (done 2 Nov 2026)
 
-Rules: never crop, tint or scale the Siskind; setup photos stay black and white; strip metadata (EXIF/GPS) on every export; photos as WebP (all current browsers incl. Safari 14+). Tell Claude when files are in `assets/`: the HTML follow-up (srcset/sizes, crop CSS removal, OG and favicon tags, `.vercelignore`) is Claude's.
+Built by Claude with sharp (libvips) from the originals in `assets/` (untracked, now git-ignored); the old image set moved to `archive/assets/` for the archived options. Rules kept: Siskind untouched (only renamed); Special Projects greyscale; no artwork visible in the LaToya crop; metadata stripped; sRGB; never larger than the source.
 
-| # | File | Now | Make | Why |
-|---|---|---|---|---|
-| 1 | `install-latoya.webp` | 1000×1333 lossless, 1.16 MB; file shows the hung works (CSS shows only ladder + desk) | `install-latoya-crop.webp`: from `Installing LaToya.jpeg` crop only the area visible today (ladder, desk, floor; no artwork), aspect ≈ 15:16, at native resolution ≈ 640×680, greyscale, WebP q85. Delete the old file | Confidentiality; the visible part is now ~250 source px stretched to ~800 on retina (soft) |
-| 2 | `portrait-head.jpg` | 3790×3618 JPEG, 5 MB | `portrait-head-800.webp` (800×764), `-1200` (1200×1146), `-1600` (1600×1528), `-2400` (2400×2291); same proportions, WebP q82. Optional: same widths as AVIF (~30% smaller) | 90% of page weight; shown full width on phones (≤1170 px at 3×) and half width on desktop (1440 px at 1440×2, 2560 px on 2560 screens) |
-| 3 | `IMG_4657.webp` | 1000×1316, 433 KB | Same size, greyscale, WebP q80 (~150–200 KB) | Weight; it is always shown in black and white |
-| 4 | `IMG_4656.webp` | 1000×1304, 187 KB | Same size, greyscale, WebP q80, no metadata | Weight, consistency |
-| 5 | `works/lawson-800/-1600.webp` | both 544×776 (identical; only a small source exists) | Ask Ben for a larger image; then `lawson-800` (≈560×800) and `lawson-1600` (≈1120×1600) | Soft in the carousel, pop-up and room |
-| 6 | `og-image.png` (new) | — | 1200×630 PNG (<100 KB): logo + "ART ADVISORY & COLLECTION MANAGEMENT" + "New York · International" on #D9E5EC. No artwork | Link previews |
-| 7 | Favicon (new) | none | `favicon.svg` (mark from the logo), `favicon.ico` (16/32/48), `apple-touch-icon.png` 180×180 on #D9E5EC | Browser tab, Google results, iPhone home screen |
-| 8 | `logo-512.png` (optional) | — | 512×512, logo centred on white | Structured-data logo (Google wants ≥112×112) |
-| 9 | `logo.svg` (optional) | 28 KB | Minify (e.g. SVGO), same look | Loaded on every page |
+**Convention:** `<subject>-<actual width>.webp`, so every `srcset` width matches its file. A changed image gets a new name (images are cached for a year as immutable).
 
-No new files needed, HTML only (Claude): the carousel, Portfolio and 5C room use the `-800` works files at up to ~590 CSS px wide; adding `srcset` with the existing `-1600` files makes them sharp on retina screens.
+| Folder | Files | Notes |
+|---|---|---|
+| `assets/works/` | `siskind-937.jpg`; bowers, charisse, giorno, mutu, nguyen `-600/-900/-1200`; menchelli `-640/-960/-1280`; menchelli-four `-675/-961`; mccaw `-773/-1199`; struth `-800/-1200/-1396`; sugimoto `-800/-1200/-1500`; tillmans and rg-miriam `-800/-1200/-1600`; `lawson-544` | Middle sizes new (q76); Struth re-encoded q70. Pages offer every size via `srcset`; the carousel, 5C room (zoomed), 5D wall and the print box choose by screen |
+| `assets/special/` | `special-4656-1000`, `special-4657-1000`, `special-latoya-756` | Square (the frames are square), greyscale; LaToya cropped from the original to ladder, desk edge and floor (x 877–1633, y 2512–3268 of the upright 3024×4032), so the CSS crop is gone |
+| `assets/portrait/` | `benjamin-clarke-800/-1200/-1600/-2400` | q78; `sizes` follows the page height (the photo covers its half / page) |
+| `assets/instagram/` | `hancock-480`, `install-8417-480`, `process-7198-480` | Square centre crops as shown before; the other three tiles reuse artwork files |
+| `assets/brand/` | `logo.svg` (minified 29→11 KB, pixel-identical), `logo-512.png`, `og-image.png` (1200×630) | Link preview: logo, “Art Advisory & Collection Management”, “New York · International” on #D9E5EC |
+| site root | `favicon.ico` (16/32/48), `favicon.svg`, `apple-touch-icon.png` (180) | CP monogram from the logo glyphs; replace if Ben has a preferred mark |
 
-No change: `siskind.jpg` (licence), `works/struth-*` (source is 1396 px, the maximum available), other `works/*`.
-
-Unused by the five options (deployed, can be deleted or kept): `works/hancock-1600.webp`, `works/install-8417-1600.webp`, `works/process-7198-1600.webp`, `works/process-7872-800.webp`, `works/process-7872-1600.webp`; `portrait-head.jpg` once item 2 is done (Claude moves it out of the deployment).
+Page weight after scrolling the whole page (local, Chrome): about 2.4 MB on a 390 px 3× phone and 2.1 MB at 1440 px 2× (was 5.6 MB at first load). Open: a larger Lawson image (then add `-600/-900/-1200`).
 
 ## 6. Test evidence (1 Nov 2026, local)
 
@@ -108,12 +99,12 @@ Environments: macOS, Chrome (stable, via Playwright), Firefox 130 and WebKit (Pl
 | Reduced motion | `prefers-reduced-motion: reduce` | home carousel does not advance |
 | Performance (lab, before) | Lighthouse 12, simulated mobile (Moto G Power, slow 4G, 4× CPU), production URL | 5A: score 86, LCP 2.8 s, CLS 0.03, TBT 370 ms, 5.6 MB. 5C: 92, LCP 3.4 s, CLS 0.04, 5.5 MB. LCP element: the Siskind. Desktop 5A: 100, LCP 0.5 s. Lab only; no field data exists (no analytics, too little traffic for CrUX). TBT is not INP |
 
-Not tested / still to do: a screen reader pass (VoiceOver on macOS and iOS: menu, pop-ups, form errors); real iPhone Safari and Android Chrome (keyboard open over the form, swipe pages); Lighthouse "after" on the preview URL once images are replaced (the portrait dominates the result).
+Not tested / still to do: a screen reader pass (VoiceOver on macOS and iOS: menu, pop-ups, form errors); real iPhone Safari and Android Chrome (keyboard open over the form, swipe pages); Lighthouse "after" on the preview URL.
 
 ## 7. Go live (when Ben has chosen)
 
-1. Fill all Owner items in §1; replace images (§5).
-2. Make the chosen option the home page: copy `option-5X-scroll/index.html` to `index.html`, change `../assets/` to `assets/`, keep `/privacy/` and `/accessibility/`; delete the other option folders (they remain in git history and `archive/` if wanted). Add the OG image tags back once `og-image.png` exists.
+1. Fill all Owner items in §1.
+2. Make the chosen option the home page: copy `option-5X-scroll/index.html` to `index.html`, change `../assets/` to `assets/`, keep `/privacy/` and `/accessibility/`; delete the other option folders (they remain in git history and `archive/` if wanted).
 3. Vercel → Domains: add `www.clarkeprojects.com` (primary) and `clarkeprojects.com` (redirect to www). At Squarespace DNS set the records Vercel shows (A for the apex, CNAME `www`). Leave the MX (Google) records untouched.
 4. Resend domain verification and `ENQUIRY_FROM` / `ENQUIRY_TO` (B7); redeploy.
 5. Firewall rate-limit rule "starts with /api/enquiry" (§3).
