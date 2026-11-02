@@ -83,6 +83,8 @@ Built by Claude with sharp (libvips) from the originals in `assets/` (untracked,
 | `assets/brand/` | `logo.svg` (minified 29→11 KB, pixel-identical), `logo-512.png`, `og-image.png` (1200×630) | Link preview: logo, “Art Advisory & Collection Management”, “New York · International” on #D9E5EC |
 | site root | `favicon.ico` (16/32/48), `favicon.svg`, `apple-touch-icon.png` (180) | CP monogram from the logo glyphs; replace if Ben has a preferred mark |
 
+Portfolio additions (2 Nov 2026): `works/process-7872-636/-955/-1273` (from IMG_7872.heic) and `works/wolfgang-700` (wolfgang.JPG is only 700×700). Captions stay placeholders (B2): "[Artist]" and "Wolfgang [surname]". Unused originals moved to `archive/assets/originals-unused/` (git-ignored).
+
 Page weight after scrolling the whole page (local, Chrome): about 2.4 MB on a 390 px 3× phone and 2.1 MB at 1440 px 2× (was 5.6 MB at first load). Open: a larger Lawson image (then add `-600/-900/-1200`).
 
 ## 6. Test evidence (1 Nov 2026, local)
