@@ -1,6 +1,6 @@
 # Clarke Projects: launch readiness review
 
-Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5h-scroll` (added 2 Nov 2026: 5F, a copy of 5C with all works on one wall; 5G, a copy of 5E with a "See Gallery" wall in the text column; 9 Nov 2026: 5H, 5B revised with Ben’s feedback, see §5b), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
+Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5k-scroll` (added 2 Nov 2026: 5F, a copy of 5C with all works on one wall; 5G, a copy of 5E with a "See Gallery" wall in the text column; 9 Nov 2026: 5H, 5B revised with Ben’s feedback, see §5b; 5I–5K, variations of 5H; a Calendly booking button in every option), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
 
 Status keys: **Done** = implemented and verified · **Prod check** = implemented, verify on the live domain · **Owner** = requires owner information · **Review** = requires external/legal review · **N/A** = not applicable.
 
@@ -15,6 +15,7 @@ Status keys: **Done** = implemented and verified · **Prod check** = implemented
 | B5 | Image licences and permissions | Written permission for: the Siskind (licence pending; may not be scaled or animated without the licensor's OK; this now includes its use, scaled down, as the site's favicon and home-screen icon), every artwork image in Portfolio and on the home carousel (artist/estate/gallery or photographer, e.g. "Photo: Dan Bradica Studio." on Nguyễn; quote permission noted in the Bowers title), installation photos (sites, people shown: art handlers, LaToya hang), and the portrait photographer. The draft Portfolio sentence ("…works placed in private collections are not reproduced here…") still awaits Ben's approval | Owner / Review |
 | B6 | Images | Done 2 Nov 2026 (§5). Still open: a larger Deana Lawson image from Ben (only 544×776 exists) | Owner (Lawson) |
 | B7 | Email sender domain | Verify clarkeprojects.com in Resend (DNS at Squarespace, needs Ben's login), set `ENQUIRY_FROM` to an @clarkeprojects.com address and `ENQUIRY_TO` to Ben; add SPF/DKIM (Resend's records) and a DMARC record. The domain has **no SPF and no DMARC today** (checked by DNS lookup); Google Workspace mail benefits from both too | Owner |
+| B8 | Calendly booking | Ben sends the link to his “complimentary consultation” event; set `calLink` in the chosen page (last script) and test a booking on the live domain. Check Calendly’s terms/data processing terms for his plan, set the privacy policy effective date, and confirm the Calendly event asks only for what is needed | Owner |
 
 ## 2. What changed in this review and why
 
@@ -121,12 +122,14 @@ The three Instagram tiles carry no caption on the site (the grid is one link to 
 
 Images: sources in `assets/images to use/` (git-ignored and not deployed, like the other originals), web copies built as in §5 (WebP q76, portrait q78; the Graham installation q62 because of the lawn texture; HEIC files converted first). New names only: `works/` bowers-chandeliers, warhol-venus, baber-ladder, struth-paradise-21, shotz-constellations, kertesz-swimmer, johnson-waverly, menchelli-nautical, hockney-paper-pool, weston-puckers, graham-fun-house, mutu-mwotaji, tillmans-elternbesuch, lawson-ivanpah, gatson-miriam, menchelli-parallax, braun-landscape, pajama-howard-starkowski, sugimoto-wolf, giorno-dial, tillmans-donne-agave; `special/` install-frazier, install-graham, install-shotz (800/1000/1200); `portrait/benjamin-clarke-veloce-800/1200/1600/2400`; `instagram/ig-1755, ig-1756, ig-1766, ig-1768, ig-1770, ig-smith-kite` (480, square centre crops). Several sources are small (Baber 530, Lawson 544, Mutu 552, Tillmans 650, Tillmans/Donne 700, Hockney 718 px wide): larger files from Ben would make the pop-ups sharper.
 
+Decisions (Alexandra, 9 Nov 2026): keep "Installation (Private Collection, New York)"; keep both pictures of Ben (portrait and the Instagram selfie); keep the colour installation photographs; no "New York · International" in the link preview (`brand/og-image-2.png`, used by 5H–5K) and no "Location" row in Contact (5H–5K). Alexandra sends Ben the captions to confirm and asks for his Calendly link.
+
 Captions are taken from Ben's file names, made consistent as "Artist, Title, year". Changes from the file names (Ben to confirm):
 
 | # | Caption in 5H | Change from the file name |
 |---|---|---|
 | Home 1 | Fabiola Menchelli, Heliogravures from the Parallax Portfolio, 2024 | "Menchilli" corrected to Menchelli |
-| Home 2 | LaToya Ruby Frazier, Installation (Private Collection, New York) | none. **Confidentiality: names a private collection; Ben to confirm the owner agrees** |
+| Home 2 | LaToya Ruby Frazier, Installation (Private Collection, New York) | none (decision 9 Nov 2026: keep this wording) |
 | Home 3 | Maurice Braun, Southern California Landscape, 1915 | none |
 | Home 4 | PaJaMa, Chuck Howard and Ted Starkowski, 1953 | none |
 | Home 5 | Dan Graham, Installation Project (Private Collection, New York) | none (same confidentiality check) |

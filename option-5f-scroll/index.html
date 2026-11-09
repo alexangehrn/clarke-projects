@@ -635,6 +635,59 @@ button,.open{touch-action:manipulation}
 }
 .hint a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .foot .legal{display:flex;gap:18px}.foot .legal a{color:inherit;text-underline-offset:3px;display:inline-block;padding-block:3px}
+
+/* Calendly: "Book a complimentary consultation" opens a pop-up. Until Benjamin's link is set it shows a placeholder;
+   with the link it shows his Calendly page in a frame (nothing from Calendly loads before the visitor asks for it) */
+.cal-ico{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2;flex:none}
+.cal-arr{width:22px;height:10px;fill:none;stroke:currentColor;stroke-width:1.2;flex:none;overflow:visible}
+[data-cal]{cursor:pointer;font:inherit;touch-action:manipulation}
+[data-cal]:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.cal-k{font:500 11.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cal-dlg{padding:0;border:0;width:min(920px,calc(100vw - 48px));height:min(640px,calc(100vh - 48px));max-width:none;max-height:none;background:#fff;color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+.cal-dlg::backdrop{background:rgba(21,26,30,.62)}
+.cal-in{position:relative;display:grid;grid-template-columns:290px minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;height:100%}
+.cal-side{grid-row:1 / span 2;padding:44px 32px;background:var(--paper-2);border-right:1px solid rgba(21,26,30,.12);display:flex;flex-direction:column;gap:12px}
+.cal-side .kicker{margin:0}
+.cal-side h2{margin:0;font-weight:200;font-size:30px;line-height:1.15;letter-spacing:-.005em}
+.cal-side p{margin:0;font-size:15px;font-weight:300;color:var(--graphite)}
+.cal-main{position:relative;display:grid;place-items:center;padding:56px 32px 8px;min-height:0;overflow:auto}
+.cal-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cal-ph{width:min(100%,400px);text-align:center}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:22px}
+.cal-grid span{aspect-ratio:1;display:grid;place-items:center;font-size:12.5px;color:#8A969E;border:1px solid rgba(21,26,30,.1)}
+.cal-grid span.h{aspect-ratio:auto;padding-bottom:4px;border:0;font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--graphite)}
+.cal-ph p{margin:0;font-size:14px;line-height:1.5;color:var(--graphite)}
+.cal-ph b{font-weight:500;color:var(--ink)}
+.cal-bar{grid-column:2;display:flex;justify-content:flex-end;padding:8px 16px 12px}
+.cal-close{min-height:44px;padding:0 10px;background:none;border:0;font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.cal-x{position:absolute;z-index:3;top:10px;right:10px;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;background:rgba(255,255,255,.85);color:var(--ink);cursor:pointer}
+.cal-x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.3}
+.cal-close:focus-visible,.cal-x:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media (max-width:700px){
+  .cal-dlg{width:100vw;height:100dvh}
+  .cal-in{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto}
+  .cal-side{grid-row:auto;padding:22px 20px 16px;border-right:0;border-bottom:1px solid rgba(21,26,30,.12);gap:6px}
+  .cal-side h2{font-size:24px}
+  .cal-main{padding:20px 20px 0}
+  .cal-bar{grid-column:1}
+}
+/* placed in Contact, below the details (desktop) or between the details and the form (small screens) */
+.contact.form .cal-c{grid-column:1 / span 4;grid-row:3;align-self:start;margin-top:30px}
+.contact.form form{grid-row:2 / span 2}
+@media (max-width:900px){.contact.form .cal-c{grid-column:1 / -1;grid-row:auto;margin:0 0 16px}.contact.form form{grid-row:auto}}
+
+/* 5F booking: a round badge with turning lettering (hidden on Home; on phones also over the Portfolio room) */
+.cal-badge{position:fixed;z-index:30;right:60px;bottom:88px;width:118px;height:118px;padding:0;border:0;border-radius:50%;background:var(--paper-2);color:var(--ink);
+  box-shadow:0 14px 30px -14px rgba(21,26,30,.5);opacity:0;transform:scale(.6);pointer-events:none}
+.cal-badge.on{opacity:1;transform:none;pointer-events:auto}
+.cal-ring{position:absolute;inset:0;width:100%;height:100%}
+.cal-ring text{font:500 10.5px var(--sans);letter-spacing:.12em;fill:currentColor}
+.cal-core{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center}
+.cal-core .cal-ico{width:18px;height:18px}
+.cal-badge:hover .cal-core{background:var(--graphite)}
+@media (prefers-reduced-motion:no-preference){.cal-badge{transition:opacity .5s ease,transform .5s cubic-bezier(.3,.7,.2,1)}.cal-ring{animation:calspin 22s linear infinite}}
+@keyframes calspin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.cal-badge{right:22px;bottom:64px;width:88px;height:88px}.cal-ring text{font-size:10.5px}.cal-core{width:40px;height:40px;margin:-20px 0 0 -20px}}
 </style>
 </head>
 <body>
@@ -708,6 +761,7 @@ button,.open{touch-action:manipulation}
   <p class="status" id="status" role="status" aria-live="polite"></p>
 </form></div></div><div class="foot"><div class="wrap"><span class="logo"><img src="../assets/brand/logo.svg" width="477" height="49" alt="Clarke Projects"></span><span>New York</span><span class="legal"><a href="/privacy/">Privacy</a><a href="/accessibility/">Accessibility</a></span><span>© 2026</span></div></div></section>
 </main>
+<button type="button" class="cal-badge" data-cal data-cal-float data-hide="home" data-hide-phone="portfolio" aria-label="Book a complimentary consultation"><svg class="cal-ring" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><defs><path id="cal-circle" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#cal-circle" textLength="286">COMPLIMENTARY CONSULTATION · BOOK A TIME · </textPath></text></svg><span class="cal-core" aria-hidden="true"><svg class="cal-ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg></span></button>
 <div class="loupe" id="loupe" aria-hidden="true"></div>
 <dialog class="viewer" id="viewer" aria-label="Portfolio viewer"><div class="v-in"><button type="button" class="v-x" id="v-x" aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 2.5l11 11M13.5 2.5l-11 11"/></svg></button><figure class="v-fig"><div class="v-pic"><img id="v-img" src="data:," alt=""></div><figcaption><span id="v-a"></span><em id="v-t"></em><small id="v-n"></small></figcaption></figure><div class="v-bar"><span class="v-count" id="v-count"></span><span class="v-nav"><button type="button" id="v-prev" aria-label="Previous work">←</button><button type="button" id="v-next" aria-label="Next work">→</button></span><button type="button" id="v-close">Close</button></div></div></dialog>
 <script>
@@ -1035,6 +1089,42 @@ button,.open{touch-action:manipulation}
     MQ.addEventListener('change',redots);redots();
   }
 
+})();
+</script>
+<dialog class="cal-dlg" id="cal-dlg" aria-labelledby="cal-h"><div class="cal-in">
+<button type="button" class="cal-x" data-cal-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 2.5l11 11M13.5 2.5l-11 11"/></svg></button>
+<div class="cal-side"><p class="kicker">Clarke Projects</p><h2 id="cal-h">Complimentary consultation</h2><p>Benjamin Clarke</p></div>
+<div class="cal-main" id="cal-main"><div class="cal-ph"><div class="cal-grid" aria-hidden="true"><span class="h">M</span><span class="h">T</span><span class="h">W</span><span class="h">T</span><span class="h">F</span><span class="h">S</span><span class="h">S</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div><p><b>[Calendly booking page]</b><br>The booking calendar opens here once the Calendly link is added.</p></div></div>
+<div class="cal-bar"><button type="button" class="cal-close" data-cal-close>Close</button></div></div></dialog>
+<script>
+// Calendly: every [data-cal] button opens the booking pop-up. Set calLink to Benjamin's Calendly event link
+// (e.g. https://calendly.com/<name>/<event>); while it is empty the pop-up shows a placeholder.
+(function(){
+  var calLink='';
+  var calDlg=document.getElementById('cal-dlg');
+  if(!calDlg||!calDlg.showModal)return;
+  var calMain=document.getElementById('cal-main'), calBack=null;
+  var calOpen=function(src){calBack=src;
+    if(calLink&&!calMain.querySelector('iframe')){var fr=document.createElement('iframe');fr.className='cal-frame';fr.title='Book a complimentary consultation (Calendly)';
+      fr.src=calLink+(calLink.indexOf('?')<0?'?':'&')+'embed_domain='+encodeURIComponent(location.hostname)+'&embed_type=Inline&hide_gdpr_banner=1';
+      calMain.innerHTML='';calMain.appendChild(fr);}
+    calDlg.showModal();};
+  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-cal]');if(t){e.preventDefault();calOpen(t);}});
+  [].forEach.call(calDlg.querySelectorAll('[data-cal-close]'),function(b){b.addEventListener('click',function(){calDlg.close();});});
+  calDlg.addEventListener('click',function(e){if(e.target===calDlg)calDlg.close();});
+  calDlg.addEventListener('close',function(){if(calBack&&calBack.focus)calBack.focus();});
+  // Floating booking buttons: shown away from the pages named in data-hide (and data-hide-phone on small screens)
+  [].forEach.call(document.querySelectorAll('[data-cal-float]'),function(fl){
+    if(!('IntersectionObserver' in window)){fl.classList.add('on');return;}
+    var calMQ=window.matchMedia('(max-width:900px)'), calSeen={},
+        calIds=(fl.getAttribute('data-hide')+' '+(fl.getAttribute('data-hide-phone')||'')).split(' ').filter(Boolean);
+    var calUpd=function(){var hide=(fl.getAttribute('data-hide')+' '+(calMQ.matches?fl.getAttribute('data-hide-phone')||'':'')).split(' ').filter(Boolean)
+      .some(function(id){return calSeen[id];});fl.classList.toggle('on',!hide&&!fl.classList.contains('gone'));};
+    var calIO=new IntersectionObserver(function(es){es.forEach(function(e){calSeen[e.target.id]=e.isIntersecting;});calUpd();},{threshold:.3});
+    calIds.forEach(function(id){var el=document.getElementById(id);if(el)calIO.observe(el);});
+    calMQ.addEventListener('change',calUpd);
+    var dis=fl.querySelector('.cal-dismiss');if(dis)dis.addEventListener('click',function(){fl.classList.add('gone');calUpd();});
+  });
 })();
 </script>
 </body>
