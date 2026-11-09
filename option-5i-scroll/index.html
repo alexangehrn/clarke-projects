@@ -696,9 +696,11 @@ button,.open{touch-action:manipulation}
 @media (prefers-reduced-motion:no-preference){.cal-out{transition:background .25s ease,color .25s ease}}
 @media (max-width:900px){.cal-out{font-size:11.5px;padding:0 12px;gap:8px}}
 
-/* 5I booking: the outlined button under the email address */
-.contact.form .cal-c{margin-top:22px}
-@media (max-width:900px){.contact.form .cal-c{margin:0 0 14px}}
+/* 5I booking: a section under the email address (rule, "Complimentary consultation", outlined button) */
+.contact.form .cal-c{margin-top:26px}
+.cal-cal{padding-top:18px;border-top:1px solid rgba(21,26,30,.3)}
+.cal-cal .cal-k{margin:0 0 12px;color:var(--graphite)}
+@media (max-width:900px){.contact.form .cal-c{margin:0 0 30px}.cal-cal{padding-top:12px}.cal-cal .cal-k{margin-bottom:10px}}
 </style>
 </head>
 <body>
@@ -750,7 +752,7 @@ button,.open{touch-action:manipulation}
 </div></section>
 <section class="page contact form mpage" id="contact" aria-labelledby="contact-h"><div class="body"><div class="wrap grid"><h2 id="contact-h">Let’s Work Together</h2><dl class="details">
   <div><dt>Email</dt><dd><a href="mailto:benjamin@clarkeprojects.com">benjamin@clarkeprojects.com</a></dd></div>
-</dl><div class="cal-c"><button type="button" class="cal-out" data-cal><svg class="cal-ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg>Book a complimentary consultation</button></div><form id="enquiry" novalidate aria-describedby="form-hint">
+</dl><div class="cal-c"><div class="cal-cal"><p class="cal-k">Complimentary consultation</p><button type="button" class="cal-out" data-cal><svg class="cal-ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg>Book a time</button></div></div><form id="enquiry" novalidate aria-describedby="form-hint">
   <div class="field"><label for="j-name">Name</label><input id="j-name" name="name" autocomplete="name" maxlength="200" required></div>
   <div class="field"><label for="j-email">Email</label><input id="j-email" name="email" type="email" autocomplete="email" maxlength="254" spellcheck="false" required></div>
   <div class="field"><label for="j-msg">Message</label><textarea id="j-msg" name="message" maxlength="5000" required></textarea></div>

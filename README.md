@@ -8,9 +8,9 @@ Static site, no build step, plus one serverless function for the contact form. H
 
 | Option | What differs | Booking button (Calendly) | Path |
 |---|---|---|---|
-| 5B | Instagram-style grid (round 3) | Button in the fixed menu bar, “Book a consultation” (“Book” on phones) | `/option-5b-scroll/` |
+| 5B | Instagram-style grid (round 3) | Button in the fixed menu bar, “Book a consultation” (“Book” on phones), and an outlined one below “Send enquiry” | `/option-5b-scroll/` |
 | 5H | 5B with Ben’s new images and texts (9 Nov 2026) | Outlined button below “Send enquiry” | `/option-5h-scroll/` |
-| 5I | As 5H, home images all at one height (nothing cropped) | Outlined button under the email address | `/option-5i-scroll/` |
+| 5I | As 5H, home images all at one height (nothing cropped) | Section under the email address: rule, “Complimentary consultation”, outlined “Book a time” button | `/option-5i-scroll/` |
 | 5J | As 5H, Portfolio on phones as the 5E box of prints (swipe) | Bar that slides up after the first page and stays, also on Contact (can be closed) | `/option-5j-scroll/` |
 | 5K | As 5J, home works framed and matted as in 5B | Section under the email: a button with a drawn calendar page | `/option-5k-scroll/` |
 
