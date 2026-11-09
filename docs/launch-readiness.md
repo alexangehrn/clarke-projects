@@ -1,6 +1,6 @@
 # Clarke Projects: launch readiness review
 
-Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5k-scroll` (added 2 Nov 2026: 5F, a copy of 5C with all works on one wall; 5G, a copy of 5E with a "See Gallery" wall in the text column; 9 Nov 2026: 5H, 5B revised with Ben’s feedback, see §5b; 5I–5K, variations of 5H; a Calendly booking button in every option), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
+Reviewed 1 November 2026. Scope: `option-5b-scroll`, `option-5h-scroll` … `option-5k-scroll` (5A, 5C–5G archived 9 Nov 2026) (added 2 Nov 2026: 5F, a copy of 5C with all works on one wall; 5G, a copy of 5E with a "See Gallery" wall in the text column; 9 Nov 2026: 5H, 5B revised with Ben’s feedback, see §5b; 5I–5K, variations of 5H; a Calendly booking button in each), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
 
 Status keys: **Done** = implemented and verified · **Prod check** = implemented, verify on the live domain · **Owner** = requires owner information · **Review** = requires external/legal review · **N/A** = not applicable.
 

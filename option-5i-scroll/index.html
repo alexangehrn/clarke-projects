@@ -554,7 +554,7 @@ button,.open{touch-action:manipulation}
   /* 4 services: all four rows */
   .services.mpage{padding-block:8px}
   .services h2{margin-bottom:4px}
-  .services .svc{padding:10px 0 clamp(8px,calc((var(--ph) - 620px) * .2 + 8px),27px)}
+  .services .svc{padding:10px 0 clamp(8px,calc((var(--ph) - 620px) * .2 + 8px),22px)}
   .services .svc h3{margin-bottom:2px;font-size:clamp(15px,calc(var(--ph) * .023),19px)}
   .services .svc p{font-size:clamp(11.5px,calc(var(--ph) * .0166),13.5px);line-height:1.4}
 
@@ -691,22 +691,14 @@ button,.open{touch-action:manipulation}
 .contact.form form{grid-row:2 / span 2}
 @media (max-width:900px){.contact.form .cal-c{grid-column:1 / -1;grid-row:auto;margin:0 0 16px}.contact.form form{grid-row:auto}}
 
-/* 5I booking: a button under the introduction on the home page; a pale light fills it on hover */
-.cal-hero{margin:34px 0 0}
-.cal-hb{position:relative;display:inline-flex;align-items:center;gap:18px;min-height:52px;padding:0 22px;overflow:hidden;background:var(--ink);color:#fff;border:0;font:500 12.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.cal-hb::before{content:"";position:absolute;inset:0;background:#B4CFDC;transform:scaleX(0);transform-origin:left}
-.cal-hb > *{position:relative}
-.cal-hb:hover{color:var(--ink)}
-.cal-hb:hover::before{transform:none}
-@media (prefers-reduced-motion:no-preference){.cal-hb::before{transition:transform .45s cubic-bezier(.3,.7,.2,1)}.cal-hb{transition:color .3s ease}.cal-hb .cal-arr{transition:transform .3s ease}.cal-hb:hover .cal-arr{transform:translateX(4px)}}
-@media (max-width:900px){.cal-hero{margin-top:14px}.cal-hb{min-height:42px;padding:0 14px;gap:12px;font-size:11px;letter-spacing:.1em}}
-/* phones: the booking button sits between the count and the arrows under the carousel */
-.cal-hb.cal-ctl{display:none}
-@media (max-width:900px){
-  .cal-hero{display:none}
-  .cal-hb.cal-ctl{display:inline-flex;min-height:38px;padding:0 12px;gap:8px;font-size:10.5px;letter-spacing:.08em}
-  .cal-hb.cal-ctl .cal-arr{display:none}
-}
+.cal-out{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;background:none;color:var(--ink);border:1px solid var(--ink);font:500 13px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;text-align:left}
+.cal-out:hover{background:var(--ink);color:#fff}
+@media (prefers-reduced-motion:no-preference){.cal-out{transition:background .25s ease,color .25s ease}}
+@media (max-width:900px){.cal-out{font-size:11.5px;padding:0 12px;gap:8px}}
+
+/* 5I booking: the outlined button under the email address */
+.contact.form .cal-c{margin-top:22px}
+@media (max-width:900px){.contact.form .cal-c{margin:0 0 14px}}
 </style>
 </head>
 <body>
@@ -730,11 +722,11 @@ button,.open{touch-action:manipulation}
 <section class="page home leftlogo lintro ex mpage" id="home" aria-labelledby="h1">
   <div class="ex-text"><div class="words"><p class="logo bigmark" id="bigmark" aria-hidden="true"><img src="../assets/brand/logo.svg" width="477" height="49" alt=""></p>
   <h1 class="h1" id="h1">Art Advisory &amp; Collection Management</h1>
-  <p class="intro">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p><p class="cal-hero"><button type="button" class="cal-hb" data-cal><span>Book a complimentary consultation</span><svg class="cal-arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M16 1l4 4-4 4"/></svg></button></p></div></div>
+  <p class="intro">Clarke Projects is a New York-based art advisory and collection management firm working with private and corporate collectors of modern, contemporary and emerging art.</p></div></div>
   <div class="ex-room" role="region" aria-roledescription="carousel" aria-label="Selected works">
     <div class="rot" id="rot" data-auto data-interval="6000">
     <figure class="ex-work fit slide on" style="--r:0.844" aria-labelledby="ex-a ex-t"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/works/menchelli-parallax-961.webp" srcset="../assets/works/menchelli-parallax-600.webp 600w, ../assets/works/menchelli-parallax-961.webp 961w" sizes="(max-width:900px) 80vw, 30vw" width="961" height="1138" fetchpriority="high" alt="Four framed black-and-white heliogravures of circles and eclipses, hung two by two on a white wall."></div></div><figcaption class="ex-label"><span id="ex-a">Fabiola Menchelli</span><em id="ex-t">Heliogravures from the Parallax Portfolio, 2024</em></figcaption></figure><figure class="ex-work fit slide" style="--r:0.75" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/special/install-frazier-800.webp" srcset="../assets/special/install-frazier-800.webp 800w, ../assets/special/install-frazier-1000.webp 1000w, ../assets/special/install-frazier-1200.webp 1200w" sizes="(max-width:900px) 80vw, 30vw" width="800" height="1067" loading="lazy" alt="An installer on a ladder hangs a grid of photographs on a wood-panelled office wall."></div></div><figcaption class="ex-label"><span>LaToya Ruby Frazier</span><em>Installation (Private Collection, New York)</em></figcaption></figure><figure class="ex-work fit slide" style="--r:1.0" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/works/braun-landscape-800.webp" srcset="../assets/works/braun-landscape-800.webp 800w, ../assets/works/braun-landscape-1200.webp 1200w, ../assets/works/braun-landscape-1600.webp 1600w" sizes="(max-width:900px) 80vw, 30vw" width="800" height="800" loading="lazy" alt="Landscape painting in a gilt frame: eucalyptus trees on a dry plain under pink evening clouds."></div></div><figcaption class="ex-label"><span>Maurice Braun</span><em>Southern California Landscape, 1915</em></figcaption></figure><figure class="ex-work fit slide" style="--r:0.795" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/works/pajama-howard-starkowski-900.webp" srcset="../assets/works/pajama-howard-starkowski-600.webp 600w, ../assets/works/pajama-howard-starkowski-900.webp 900w, ../assets/works/pajama-howard-starkowski-1200.webp 1200w" sizes="(max-width:900px) 80vw, 30vw" width="900" height="1131" loading="lazy" alt="Black-and-white photograph of two men, one leaning on the other, laid on a mat board beside frame mouldings."></div></div><figcaption class="ex-label"><span>PaJaMa</span><em>Chuck Howard and Ted Starkowski, 1953</em></figcaption></figure><figure class="ex-work fit slide" style="--r:0.75" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/special/install-graham-800.webp" srcset="../assets/special/install-graham-800.webp 800w, ../assets/special/install-graham-1000.webp 1000w, ../assets/special/install-graham-1200.webp 1200w" sizes="(max-width:900px) 80vw, 30vw" width="800" height="1067" loading="lazy" alt="A crew with a lifting machine sets a large glass panel into place on a lawn, trees behind."></div></div><figcaption class="ex-label"><span>Dan Graham</span><em>Installation Project (Private Collection, New York)</em></figcaption></figure><figure class="ex-work fit slide" style="--r:1.241" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/works/sugimoto-wolf-800.webp" srcset="../assets/works/sugimoto-wolf-800.webp 800w, ../assets/works/sugimoto-wolf-1200.webp 1200w, ../assets/works/sugimoto-wolf-1500.webp 1500w" sizes="(max-width:900px) 80vw, 30vw" width="800" height="645" loading="lazy" alt="Black-and-white photograph of a rooftop water tower at night above a glowing white screen, the Empire State Building in the distance."></div></div><figcaption class="ex-label"><span>Hiroshi Sugimoto</span><em>Wolf Building, NYC, 2015</em></figcaption></figure><figure class="ex-work fit slide" style="--r:0.75" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/works/giorno-dial-900.webp" srcset="../assets/works/giorno-dial-600.webp 600w, ../assets/works/giorno-dial-900.webp 900w, ../assets/works/giorno-dial-1200.webp 1200w" sizes="(max-width:900px) 80vw, 30vw" width="900" height="1200" loading="lazy" alt="A black push-button telephone on a white plinth, large black-and-white text panels on the wall behind."></div></div><figcaption class="ex-label"><span>John Giorno</span><em>Dial-A-Poem, 1968/2012</em></figcaption></figure><figure class="ex-work fit slide" style="--r:1.0" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/works/tillmans-donne-agave-700.webp" srcset="../assets/works/tillmans-donne-agave-700.webp 700w" sizes="(max-width:900px) 80vw, 30vw" width="700" height="700" loading="lazy" alt="Print of a close-up photograph of blue-green agave leaves beside the text of John Donne’s poem “The Sun Rising”."></div></div><figcaption class="ex-label"><span>Wolfgang Tillmans</span><em>John Donne / Agave, Berlin Collage, 2020 (for Prospect Cottage)</em></figcaption></figure><figure class="ex-work fit slide" style="--r:0.75" aria-hidden="true"><div class="ex-frame"><div class="ex-mat" data-loupe><img src="../assets/special/install-shotz-800.webp" srcset="../assets/special/install-shotz-800.webp 800w, ../assets/special/install-shotz-1000.webp 1000w, ../assets/special/install-shotz-1200.webp 1200w" sizes="(max-width:900px) 80vw, 30vw" width="800" height="1067" loading="lazy" alt="Two installers standing on a table lift a large looping wire sculpture towards an office ceiling."></div></div><figcaption class="ex-label"><span>Alyson Shotz</span><em>Installation (Private Collection, New York)</em></figcaption></figure></div>
-    <div class="rot-ctl"><span class="rot-count" id="rot-count">01 / 09</span><button type="button" class="cal-hb cal-ctl" data-cal><span>Book a consultation</span><svg class="cal-arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M16 1l4 4-4 4"/></svg></button><span class="rot-btns"><button type="button" class="rot-btn" id="rot-prev" aria-label="Previous work">←</button><button type="button" class="rot-btn" id="rot-next" aria-label="Next work">→</button></span></div>
+    <div class="rot-ctl"><span class="rot-count" id="rot-count">01 / 09</span><span class="rot-btns"><button type="button" class="rot-btn" id="rot-prev" aria-label="Previous work">←</button><button type="button" class="rot-btn" id="rot-next" aria-label="Next work">→</button></span></div>
     <p class="sr" id="rot-live" aria-live="polite"></p>
   </div>
 </section><section class="page about" id="about" aria-labelledby="about-h">
@@ -758,7 +750,7 @@ button,.open{touch-action:manipulation}
 </div></section>
 <section class="page contact form mpage" id="contact" aria-labelledby="contact-h"><div class="body"><div class="wrap grid"><h2 id="contact-h">Let’s Work Together</h2><dl class="details">
   <div><dt>Email</dt><dd><a href="mailto:benjamin@clarkeprojects.com">benjamin@clarkeprojects.com</a></dd></div>
-</dl><form id="enquiry" novalidate aria-describedby="form-hint">
+</dl><div class="cal-c"><button type="button" class="cal-out" data-cal><svg class="cal-ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg>Book a complimentary consultation</button></div><form id="enquiry" novalidate aria-describedby="form-hint">
   <div class="field"><label for="j-name">Name</label><input id="j-name" name="name" autocomplete="name" maxlength="200" required></div>
   <div class="field"><label for="j-email">Email</label><input id="j-email" name="email" type="email" autocomplete="email" maxlength="254" spellcheck="false" required></div>
   <div class="field"><label for="j-msg">Message</label><textarea id="j-msg" name="message" maxlength="5000" required></textarea></div>
@@ -1102,7 +1094,7 @@ button,.open{touch-action:manipulation}
   if(!calDlg||!calDlg.showModal)return;
   var calMain=document.getElementById('cal-main'), calBack=null;
   var calOpen=function(src){calBack=src;
-    if(calLink&&!calMain.querySelector('iframe')){var fr=document.createElement('iframe');fr.className='cal-frame';fr.title='Book a complimentary consultation (Calendly)';
+    if(calLink&&!calMain.querySelector('iframe')){var fr=document.createElement('iframe');fr.className='cal-frame';fr.title=document.getElementById('cal-h').textContent+' (Calendly)';
       fr.src=calLink+(calLink.indexOf('?')<0?'?':'&')+'embed_domain='+encodeURIComponent(location.hostname)+'&embed_type=Inline&hide_gdpr_banner=1';
       calMain.innerHTML='';calMain.appendChild(fr);}
     calDlg.showModal();};

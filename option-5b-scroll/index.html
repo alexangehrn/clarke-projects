@@ -537,7 +537,7 @@ button,.open{touch-action:manipulation}
   .home.leftlogo .city{margin-top:4px}
   .home.lintro .intro{margin-top:14px;padding-top:12px;font-size:14.5px;line-height:1.5}
   .home.ex .ex-room{flex:1;padding:14px var(--m) 52px;display:grid;place-items:center}
-  .ex-room .ex-work,.ex-room .ex-work.fit{min-width:0;width:min(100%,340px,calc((var(--ph) - 410px) / (.84 / var(--r,1) + .16)))}
+  .ex-room .ex-work,.ex-room .ex-work.fit{min-width:0;width:min(100%,340px,calc((var(--ph) - 440px) / (.84 / var(--r,1) + .16)))}
   .ex-room .ex-label{display:block;width:max-content;max-width:calc(100vw - 2 * var(--m));margin:10px 0 0 50%;padding-top:7px;transform:translateX(-50%);text-align:center}
   .ex-room .ex-label span::after{content:", ";font-weight:300}
   .rot-ctl{bottom:6px}
@@ -612,7 +612,7 @@ button,.open{touch-action:manipulation}
 .hint a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .foot .legal{display:flex;gap:18px}.foot .legal a{color:inherit;text-underline-offset:3px;display:inline-block;padding-block:3px}
 
-/* Calendly: "Book a complimentary consultation" opens a pop-up. Until Benjamin's link is set it shows a placeholder;
+/* Calendly: "Book a consultation" opens a pop-up. Until Benjamin's link is set it shows a placeholder;
    with the link it shows his Calendly page in a frame (nothing from Calendly loads before the visitor asks for it) */
 .cal-ico{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2;flex:none}
 .cal-arr{width:22px;height:10px;fill:none;stroke:currentColor;stroke-width:1.2;flex:none;overflow:visible}
@@ -652,7 +652,7 @@ button,.open{touch-action:manipulation}
 .contact.form form{grid-row:2 / span 2}
 @media (max-width:900px){.contact.form .cal-c{grid-column:1 / -1;grid-row:auto;margin:0 0 16px}.contact.form form{grid-row:auto}}
 
-/* 5B booking: a solid button in the fixed menu bar, always in view */
+/* 5B booking: a solid button in the fixed menu bar, on every page */
 .cal-hdr{margin-left:30px;display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:0 16px;background:var(--ink);color:#fff;border:0;font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 .cal-hdr:hover{background:var(--graphite)}
 .cal-short{display:none}
@@ -1061,7 +1061,7 @@ button,.open{touch-action:manipulation}
 </script>
 <dialog class="cal-dlg" id="cal-dlg" aria-labelledby="cal-h"><div class="cal-in">
 <button type="button" class="cal-x" data-cal-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 2.5l11 11M13.5 2.5l-11 11"/></svg></button>
-<div class="cal-side"><p class="kicker">Clarke Projects</p><h2 id="cal-h">Complimentary consultation</h2><p>Benjamin Clarke</p></div>
+<div class="cal-side"><p class="kicker">Clarke Projects</p><h2 id="cal-h">Book a consultation</h2><p>Benjamin Clarke</p></div>
 <div class="cal-main" id="cal-main"><div class="cal-ph"><div class="cal-grid" aria-hidden="true"><span class="h">M</span><span class="h">T</span><span class="h">W</span><span class="h">T</span><span class="h">F</span><span class="h">S</span><span class="h">S</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div><p><b>[Calendly booking page]</b><br>The booking calendar opens here once the Calendly link is added.</p></div></div>
 <div class="cal-bar"><button type="button" class="cal-close" data-cal-close>Close</button></div></div></dialog>
 <script>
@@ -1073,7 +1073,7 @@ button,.open{touch-action:manipulation}
   if(!calDlg||!calDlg.showModal)return;
   var calMain=document.getElementById('cal-main'), calBack=null;
   var calOpen=function(src){calBack=src;
-    if(calLink&&!calMain.querySelector('iframe')){var fr=document.createElement('iframe');fr.className='cal-frame';fr.title='Book a complimentary consultation (Calendly)';
+    if(calLink&&!calMain.querySelector('iframe')){var fr=document.createElement('iframe');fr.className='cal-frame';fr.title=document.getElementById('cal-h').textContent+' (Calendly)';
       fr.src=calLink+(calLink.indexOf('?')<0?'?':'&')+'embed_domain='+encodeURIComponent(location.hostname)+'&embed_type=Inline&hide_gdpr_banner=1';
       calMain.innerHTML='';calMain.appendChild(fr);}
     calDlg.showModal();};
