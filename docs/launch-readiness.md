@@ -1,6 +1,6 @@
 # Clarke Projects: launch readiness review
 
-Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5g-scroll` (added 2 Nov 2026: 5F, a copy of 5C with all works on one wall; 5G, a copy of 5E with a "See Gallery" wall in the text column), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
+Reviewed 1 November 2026. Scope: `option-5a-scroll` … `option-5h-scroll` (added 2 Nov 2026: 5F, a copy of 5C with all works on one wall; 5G, a copy of 5E with a "See Gallery" wall in the text column; 9 Nov 2026: 5H, 5B revised with Ben’s feedback, see §5b), the contact function (`api/enquiry.js`), deployment configuration, and the new `/privacy/`, `/accessibility/` and `404.html`. One option will become the home page of www.clarkeprojects.com. This file is internal (excluded from deployments by `.vercelignore`).
 
 Status keys: **Done** = implemented and verified · **Prod check** = implemented, verify on the live domain · **Owner** = requires owner information · **Review** = requires external/legal review · **N/A** = not applicable.
 
@@ -114,6 +114,41 @@ Captions supplied by Alexandra on 2 Nov 2026 and now used in all options (home c
 | `instagram/hancock` | Trenton Doyle Hancock | The Boys in the Hoods are Always Hard, 2023 | Installation view, Draw Them In, Paint Them Out: Trenton Doyle Hancock Confronts Philip Guston, The Jewish Museum, New York | Review (not shown on the site: Instagram tile) |
 
 The three Instagram tiles carry no caption on the site (the grid is one link to Instagram); their captions are recorded here for the zip of artwork images and for Instagram.
+
+## 5b. Option 5H (9 Nov 2026): images and captions, Ben to review
+
+5H is 5B with Ben's feedback of 9 Nov 2026. Already settled in 5H: email benjamin@clarkeprojects.com (phone removed), LinkedIn https://www.linkedin.com/in/benjamin-clarke-nz/, portrait credit "Photograph: Leonardo Veloce" (shown on hover/focus), new Clients and Portfolio texts, no Special Projects section, Instagram after Contact. Calendly not built yet (owner decision).
+
+Images: sources in `assets/images to use/` (git-ignored and not deployed, like the other originals), web copies built as in §5 (WebP q76, portrait q78; the Graham installation q62 because of the lawn texture; HEIC files converted first). New names only: `works/` bowers-chandeliers, warhol-venus, baber-ladder, struth-paradise-21, shotz-constellations, kertesz-swimmer, johnson-waverly, menchelli-nautical, hockney-paper-pool, weston-puckers, graham-fun-house, mutu-mwotaji, tillmans-elternbesuch, lawson-ivanpah, gatson-miriam, menchelli-parallax, braun-landscape, pajama-howard-starkowski, sugimoto-wolf, giorno-dial, tillmans-donne-agave; `special/` install-frazier, install-graham, install-shotz (800/1000/1200); `portrait/benjamin-clarke-veloce-800/1200/1600/2400`; `instagram/ig-1755, ig-1756, ig-1766, ig-1768, ig-1770, ig-smith-kite` (480, square centre crops). Several sources are small (Baber 530, Lawson 544, Mutu 552, Tillmans 650, Tillmans/Donne 700, Hockney 718 px wide): larger files from Ben would make the pop-ups sharper.
+
+Captions are taken from Ben's file names, made consistent as "Artist, Title, year". Changes from the file names (Ben to confirm):
+
+| # | Caption in 5H | Change from the file name |
+|---|---|---|
+| Home 1 | Fabiola Menchelli, Heliogravures from the Parallax Portfolio, 2024 | "Menchilli" corrected to Menchelli |
+| Home 2 | LaToya Ruby Frazier, Installation (Private Collection, New York) | none. **Confidentiality: names a private collection; Ben to confirm the owner agrees** |
+| Home 3 | Maurice Braun, Southern California Landscape, 1915 | none |
+| Home 4 | PaJaMa, Chuck Howard and Ted Starkowski, 1953 | none |
+| Home 5 | Dan Graham, Installation Project (Private Collection, New York) | none (same confidentiality check) |
+| Home 6 | Hiroshi Sugimoto, Wolf Building, NYC, 2015 | comma before the year (earlier caption: "Wolf Building Rooftop, New York, 2015") |
+| Home 7 | John Giorno, Dial-A-Poem, 1968/2012 | "_" read as "/" |
+| Home 8 | Wolfgang Tillmans, John Donne / Agave, Berlin Collage, 2020 (for Prospect Cottage) | "_" read as "/" |
+| Home 9 | Alyson Shotz, Installation (Private Collection, New York) | none (same confidentiality check) |
+| 1 | Andrea Bowers, Chandeliers of Interconnectedness, 2022 | year added from the earlier caption list |
+| 2 | Andy Warhol, Details of Renaissance Paintings (Sandro Botticelli, Birth of Venus, 1482) | none; **year of the Warhol print missing** |
+| 3 | Alice Baber, Ladder over and under, 1972 | none |
+| 4 | Thomas Struth, Paradise 21, São Francisco de Xavier, Brazil, 2001 | "Sao … Xaxier" corrected to "São … Xavier" |
+| 5 | Alyson Shotz, The Silent Constellations #2, 2023 | none |
+| 6 | André Kertész, Underwater Swimmer, Esztergom, 1917 | none |
+| 7 | Rashid Johnson, Soul Drawing “Waverly”, 2025 | "_Waverly_" read as quotation marks |
+| 8 | Fabiola Menchelli, Nautical, 2023 | none |
+| 9 | David Hockney, Pool Made with Paper and Blue Ink for Book, from Paper Pools, 1980 | none |
+| 10 | Charisse Pearlina Weston, the one which puckers down past the touchtone pulse of reason (Atlanta, GA, May 30, 2020), 2023 | none (lower case as given) |
+| 11 | Dan Graham, Fun House for Mallin, 1999 | none |
+| 12 | Wangechi Mutu, Mwotaji (The Dreamer), 2016 | none |
+| 13 | Wolfgang Tillmans, Elternbesuch, 2022 | comma before the year |
+| 14 | Deana Lawson, Ivanpah, 2023 | none (earlier caption: "Approaching Ivanpah") |
+| 15 | Rico Gatson, Miriam, 2024 | none |
 
 ## 6. Test evidence (1 Nov 2026, local)
 
